@@ -1,0 +1,15 @@
+.pathDraw path {
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  animation: draw 1.5s ease-in forwards;
+}
+
+.pathDraw {
+  filter: brightness(150%);
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

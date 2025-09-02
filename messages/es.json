@@ -1,0 +1,57 @@
+{
+  "footer": {
+    "address": "Dirección",
+    "contact": "Contacto"
+  },
+  "home": {
+    "subhero-h1": "Derechos de autor",
+    "subhero-p": "Para aquellos que buscan muebles exclusivos, Leon Ades está listo para crear una pieza que combine diseño único y materiales de primera línea. Solo él puede ofrecer un diseño alineado con el confort y una artesanía exquisita, asegurando que su hogar sea más bello y confortable.",
+    "highlights-h1": "Destacados",
+    "contactLink": "Contacto",
+    "custom-made-h1": "Hecho a Medida",
+    "custom-made-p": "Proyectos elaborados con foco en la durabilidad y la elección criteriosa de materiales. La visión del cliente es traducida en excelencia de diseño y acabado, resultando en piezas a medida. Para más detalles sobre creaciones personalizadas, contáctenos:",
+    "FAQQ1": "¿Cómo funciona el envío?",
+    "FAQA1": "Respuesta pregunta 1 ES",
+    "FAQQ2": "¿Cuál es el plazo de entrega?",
+    "FAQA2": "Respuesta pregunta 2 ES",
+    "FAQQ3": "¿Son maderas legales?",
+    "FAQA3": "Respuesta pregunta 3 ES",
+    "FAQQ4": "¿Realizas proyectos a medida?",
+    "FAQA4": "Respuesta pregunta 4 ES",
+    "FAQQ5": "¿Clases/Talleres?",
+    "FAQA5": "Respuesta pregunta 5 ES"
+  },
+  "HomePageHero": {
+    "h2": "Piezas artesanales con significado.",
+    "h3": "El diseñador que crea diseños singulares uniendo creatividad, confort y calidad técnica, en muebles de madera."
+  },
+  "Navbar": {
+    "home": "Inicio",
+    "shop": "Tienda",
+    "about": "Acerca de",
+    "showcase": "Vitrina",
+    "contact": "Contacto"
+  },
+  "about": {
+    "hero": "“Como diseñador, creo que el diseño tiene una gran responsabilidad social y debe ser pensado como un agente transformador de hábitos entre las personas.”",
+    "aboutme": "Sobre mí",
+    "shop": "Tienda",
+    "showcase": "Vitrina",
+    "contact": "Contacto",
+    "pillars": "Pilares",
+    "pillarsp1": "Leon Ades se graduó en diseño de producto y encontró en la carpintería una forma de materializar sus ideas, uniendo técnicas milenarias con diseños contemporáneos.",
+    "pillarsp2": "Se enamoró de la carpintería en 2015. Desde entonces se dedica intensamente a la creación de muebles que diseña y ejecuta íntegramente en su taller utilizando técnicas tradicionales de carpintería aplicada. En sus diseños busca algo que flirtee tanto con lo geométrico y racional como con las curvas y la organicidad.",
+    "pillarsp3": "Crea piezas que unen belleza estética con atemporalidad para durar generaciones.",
+    "pillarsp4": "Actualmente, el diseñador tiene su propia línea de productos y también trabaja mediante encargos de piezas de línea o creando nuevas piezas según las necesidades de cada cliente.",
+    "mentorshiph1": "Curso Libre / Mentoría",
+    "mentorshipP": "Diseño de mobiliario + carpintería",
+    "mentorshipP2": "Los grupos están compuestos por hasta 4 personas.",
+    "mentorshipP3": "Aprendes desde el dibujo hasta la construcción de la pieza. Todo el proceso, desde el desarrollo del proyecto hasta la ejecución, aprendiendo durante y haciendo todos los muebles que quieras dentro del período.",
+    "mentorshipP4": "Contáctenos para consultar fechas y horarios disponibles.",
+    "workshoph1": "Más fotos del taller",
+    "workshoph2": "¡Leon y su equipo cuentan con la presencia del empleado del mes, Tofu!"
+  },
+  "StorePage": {
+    "hero": "Productos."
+  }
+}

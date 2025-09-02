@@ -1,0 +1,57 @@
+{
+  "footer": {
+    "address": "Address",
+    "contact": "Contact"
+  },
+  "home": {
+    "subhero-h1": "Copyright",
+    "subhero-p": "For those seeking exclusive furniture, Leon Ades is ready to create a piece that combines unique design and top-of-the-line materials. Only he can deliver a design aligned with comfort and exquisite craftsmanship, ensuring your home is more beautiful and comfortable.",
+    "highlights-h1": "Highlights",
+    "contactLink": "Contact",
+    "custom-made-h1": "Custom Made",
+    "custom-made-p": "Projects developed with a focus on durability and careful material selection. The client's vision is translated into design excellence and finishing, resulting in custom-made pieces. For more details on personalized creations, please contact:",
+    "FAQQ1": "How does shipping work?",
+    "FAQA1": "Answer to question 1 EN",
+    "FAQQ2": "What is the delivery time?",
+    "FAQA2": "Answer to question 2 EN",
+    "FAQQ3": "Is the wood legally sourced?",
+    "FAQA3": "Answer to question 3 EN",
+    "FAQQ4": "Do you make custom projects?",
+    "FAQA4": "Answer to question 4 EN",
+    "FAQQ5": "Classes/Workshops?",
+    "FAQA5": "Answer to question 5 EN"
+  },
+  "HomePageHero": {
+    "h2": "Handcrafted pieces with meaning.",
+    "h3": "The designer who creates singular designs, uniting creativity, comfort, and technical quality in wooden furniture."
+  },
+  "Navbar": {
+    "home": "Home",
+    "shop": "Shop",
+    "about": "About",
+    "showcase": "Showcase",
+    "contact": "Contact"
+  },
+  "about": {
+    "hero": "“As a designer, I believe that design has great social responsibility and should be thought of as an agent of habit transformation among people.”",
+    "aboutme": "About Me",
+    "shop": "Shop",
+    "showcase": "Showcase",
+    "contact": "Contact",
+    "pillars": "Pillars",
+    "pillarsp1": "Leon Ades graduated in product design and found in woodworking a way to materialize his ideas, combining ancient techniques with contemporary designs.",
+    "pillarsp2": "He fell in love with woodworking in 2015. Since then, he has dedicated himself intensely to creating furniture that he designs and fully executes in his workshop using applied traditional woodworking techniques. In his designs, he seeks something that flirts with both the geometric and rational, as well as curves and organicity.",
+    "pillarsp3": "He creates pieces that combine aesthetic beauty with timelessness to last for generations.",
+    "pillarsp4": "Currently, the designer has his own line of products and also works on commissioned pieces from his line or by creating new pieces according to each client's needs.",
+    "mentorshiph1": "Free Course / Mentorship",
+    "mentorshipP": "Furniture Design + Woodworking",
+    "mentorshipP2": "Classes consist of up to 4 people.",
+    "mentorshipP3": "You learn everything from drawing to building the piece. The entire process from project development to execution, learning during and making all the furniture you want within the period.",
+    "mentorshipP4": "Contact us to check available dates and times.",
+    "workshoph1": "More workshop photos",
+    "workshoph2": "Leon and his team are joined by the employee of the month, Tofu!"
+  },
+  "StorePage": {
+    "hero": "Products."
+  }
+}

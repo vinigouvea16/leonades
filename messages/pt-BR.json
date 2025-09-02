@@ -1,0 +1,57 @@
+{
+  "footer": {
+    "address": "Endereço",
+    "contact": "Contato"
+  },
+  "home": {
+    "subhero-h1": "Autoral",
+    "subhero-p": "Para quem busca móveis exclusivos, Leon Ades está pronto para criar a peça que une um design singular e materiais de primeira linha. Isso porque somente ele consegue entregar um design alinhado ao conforto e à execução primorosa, garantindo que você tenha um lar mais bonito e confortável.",
+    "highlights-h1": "Destaques",
+    "contactLink": "contato",
+    "custom-made-h1": "Sob Medida",
+    "custom-made-p": "Projetos elaborados com foco na durabilidade e na escolha criteriosa de materiais. A visão do cliente é traduzida em excelência de design e acabamento, resultando em peças sob medida. Para mais detalhes sobre criações personalizadas, entre em contato:",
+    "FAQQ1": "Como funciona o frete?",
+    "FAQA1": "resposta pergunta 1 PT-br",
+    "FAQQ2": "Qual o prazo de entrega?",
+    "FAQA2": "Resposta pergunta 2 pt-br",
+    "FAQQ3": "São madeiras legais?",
+    "FAQA3": "Resposta pergunta 3 pt-br",
+    "FAQQ4": "Você faz projetos sob medida?",
+    "FAQA4": "Resposta pergunta 4 pt-br",
+    "FAQQ5": "Aulas/Oficinas?",
+    "FAQA5": "Resposta pergunta 5 pt-br"
+  },
+  "HomePageHero": {
+    "h2": "Peças artesanais com significado.",
+    "h3": "O designer que cria desenhos singulares unindo criatividade, conforto e qualidade técnica, em móveis de madeira."
+  },
+  "Navbar": {
+    "home": "Início",
+    "shop": "Loja",
+    "about": "Sobre",
+    "showcase": "Vitrine",
+    "contact": "Contato"
+  },
+  "about": {
+    "hero": "“Como designer, eu acredito que o design tem grande responsabilidade social e deve ser pensado como agente transformador de hábito entre as pessoas.”",
+    "aboutme": "Sobre",
+    "shop": "Loja",
+    "showcase": "Vitrine",
+    "contact": "Contato",
+    "pillars": "Pilares",
+    "pillarsp1": "Leon Ades é formado em design de produto e encontrou na marcenaria uma maneira de materializar suas ideias, unindo técnicas milenares com desenhos contemporâneos.",
+    "pillarsp2": "Apaixonou-se por marcenaria em 2015. Desde então se dedica intensamente à criação de móveis que desenha e executa inteiramente em sua oficina utilizando técnicas tradicionais de marcenaria aplicadas. Em seus desenhos busca algo que flerte tanto com o geométrico e racional quanto com as curvas e a organicidade.",
+    "pillarsp3": "Cria peças que unem beleza estética com atemporalidade para durarem gerações",
+    "pillarsp4": "Atualmente o designer tem uma linha própria de produtos e trabalha, também, por meio de encomendas de peças de linha ou criando novas peças de acordo com as necessidades de cada cliente.",
+    "mentorshiph1": "Curso Livre / Mentoria",
+    "mentorshipP": "Design de mobiliário + marcenaria",
+    "mentorshipP2": "As turmas são compostas de até 4 pessoas",
+    "mentorshipP3": "Você aprende desde o desenho até a construção da peça. Todo o processo o desenvolvimento do projeto até a execução, aprendendo durante e fazendo todos os móveis que você quiser dentro do período.",
+    "mentorshipP4": "Entre em contato para conferir as datas e horários disponíveis",
+    "workshoph1": "Mais fotos da oficina",
+    "workshoph2": "Leon e sua equipe contam com a presença do funcionário do mês Tofu!"
+  },
+  "StorePage": {
+    "hero": "Produtos."
+  }
+}
