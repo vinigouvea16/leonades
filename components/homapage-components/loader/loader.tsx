@@ -36,7 +36,6 @@ export default function Loader() {
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <div className="relative h-[650px] w-[322px] flex items-center justify-center">
-            {/* Borda animada */}
             <svg
               className="absolute top-0 left-0 w-full h-full"
               viewBox="0 0 322 650"
@@ -55,7 +54,6 @@ export default function Loader() {
               />
             </svg>
 
-            {/* SVG animado do logo */}
             <div className="relative z-10 flex items-center justify-center">
               <svg
                 className={styles.pathDraw}

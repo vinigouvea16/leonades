@@ -1,3 +1,5 @@
+'use client'
+import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
@@ -6,7 +8,12 @@ import Link from 'next/link'
 export default function SubHero() {
   const t = useTranslations('home')
   return (
-    <div className="lg:h-[90vh] font-light bg-leon-new-sand w-full flex flex-col justify-center">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, ease: 'easeOut', delay: 1.5 }}
+      className="lg:h-[90vh] font-light bg-leon-new-sand w-full flex flex-col justify-center"
+    >
       <div className="flex flex-col lg:flex-row lg:mx-5 gap-5 justify-between h-[80%]">
         <div
           className="lg:flex-1 flex flex-col justify-end  lg:mx-0 mx-3"
@@ -19,7 +26,7 @@ export default function SubHero() {
               alt=""
               width={253}
               height={168}
-              // sizes=""
+              sizes="100vw"
             />
           </div>
           <div className="gap-1 flex flex-col items-start lg:space-y-8 space-y-2 align-middle">
@@ -69,6 +76,6 @@ export default function SubHero() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }

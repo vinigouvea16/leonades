@@ -47,11 +47,11 @@ export default function SubHero() {
               ease: 'easeOut',
               delay: 0.8,
             }}
-            viewport={{ once: false, amount: 0.8 }}
+            viewport={{ once: true, amount: 0.8 }}
             className="absolute top-0 left-0 w-[1px] h-full bg-leon-black/50"
           />
 
-          <p className="lg:text-2xl 2xl:text-3xl font-light lg:ml-10 ml-5">
+          <p className="lg:text-2xl 2xl:text-3xl font-light lg:ml-10 ml-5 truncate">
             [ {t('aboutme')} ]
           </p>
           <div className="flex lg:ml-10 ml-5 gap-2">

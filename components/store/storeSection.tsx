@@ -161,11 +161,13 @@ export default function StoreSection() {
 
       {/* Right-side */}
       <div className="lg:flex-1 lg:block hidden">
-        <StoreGrid
-          products={products}
-          activeProduct={activeProduct}
-          setActiveProduct={setActiveProduct}
-        />
+        <Link href={'/product'}>
+          <StoreGrid
+            products={products}
+            activeProduct={activeProduct}
+            setActiveProduct={setActiveProduct}
+          />
+        </Link>
       </div>
 
       {/* Mobile carousel */}

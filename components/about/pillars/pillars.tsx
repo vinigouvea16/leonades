@@ -11,7 +11,7 @@ export default function Pillars() {
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.5 }}
+      viewport={{ once: true, amount: 0.7 }}
       className="flex gap-12 flex-col font-light mb-12 relative overflow-x-hidden"
     >
       <div className="flex lg:mx-5 mx-3">
@@ -30,7 +30,7 @@ export default function Pillars() {
               visible: {
                 height: '100%',
                 transition: {
-                  duration: 0.8,
+                  duration: 1,
                   ease: 'easeOut',
                   delay: 0.2,
                 },
@@ -54,7 +54,7 @@ export default function Pillars() {
                 transition: {
                   duration: 0.8,
                   ease: 'easeOut',
-                  delay: 0.5,
+                  delay: 0.8,
                 },
               },
             }}
@@ -66,7 +66,7 @@ export default function Pillars() {
               <p className="lg:w-1/2 2xl:text-justify">{t('pillarsp4')}</p>
             </div>
             <Link className="flex justify-end items-center" href={'/store'}>
-              <span className="text-lg">Loja</span>
+              <span className="text-lg">{t('storeLink')}</span>
               <ArrowUpRight className="size-10" strokeWidth={1} />
             </Link>
           </div>
@@ -80,7 +80,7 @@ export default function Pillars() {
             transition: {
               duration: 0.8,
               ease: 'easeOut',
-              delay: 0.8,
+              delay: 1.2,
             },
           },
         }}

@@ -23,9 +23,9 @@ export default function Hero() {
             initial={{ height: 0 }}
             animate={{ height: '80%' }}
             transition={{
-              duration: 0.8,
+              duration: 1,
               ease: 'easeOut',
-              delay: 0.6,
+              delay: 0.5,
             }}
             className="w-[1px] bg-leon-black/25"
           />
@@ -35,7 +35,7 @@ export default function Hero() {
             transition={{
               duration: 0.8,
               ease: 'easeOut',
-              delay: 0.7,
+              delay: 0.5,
             }}
             className="w-[1px] bg-leon-black/25"
           />
@@ -51,11 +51,11 @@ export default function Hero() {
           initial={{ width: 0 }}
           animate={{ width: '100%' }}
           transition={{
-            duration: 0.8,
+            duration: 1,
             ease: 'easeOut',
-            delay: 1.1,
+            delay: 1,
           }}
-          className="h-[1px] bg-leon-black/25 origin-left"
+          className="h-[1px] bg-leon-black/25 "
         />
         <div className="flex w-full justify-between">
           <p>(São Paulo, Brasil)</p>
