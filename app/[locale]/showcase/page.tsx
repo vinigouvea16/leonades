@@ -20,7 +20,7 @@ function ShowCaseDesktop() {
     <div className="lg:flex-col hidden lg:flex space-y-12 overflow-x-hidden">
       {/* hero */}
       <div className="flex flex-col h-screen ">
-        <div className="bg-[url('/showcase/casapiabaheroimg.jpg')] h-[75%] bg-center bg-cover">
+        <div className="bg-[url('/showcase/showcaseheroimg.webp')] h-[75%] bg-center bg-cover">
           <div className="absolute right-0 bottom-0 flex flex-row-reverse align-baseline w-full gap-2">
             <div className="flex p-5 gap-5 h-[550px] bg-leon-new-sand 2xl:w-2/3 w-[55%]">
               <Image
@@ -297,7 +297,7 @@ function ShowCaseDesktop() {
           <h3 className="font-light text-4xl text-center mx-2">
             Want to know more about this amazing project?
           </h3>
-          <span className="text-xs text-leon-concrete/30">
+          <span className="text-xs text-leon-concrete/75">
             click on the chair
           </span>
           <Link
@@ -341,7 +341,7 @@ function ShowCaseMobile() {
     <div className="flex flex-col lg:hidden space-y-8">
       {/* hero */}
       <div className="flex flex-col h-screen ">
-        <div className="bg-[url('/showcase/casapiabaheroimg.jpg')] h-[70%] relative bg-center bg-cover">
+        <div className="bg-[url('/showcase/showcaseheroimg.webp')] h-[70%] relative bg-center bg-cover">
           <div className="flex p-2 gap-2 max-w-11/12 h-[260px] bg-leon-new-sand absolute right-0 -bottom-3 ">
             <Image
               src={

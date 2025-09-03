@@ -56,12 +56,14 @@ export default function SubHero() {
           </p>
           <div className="flex lg:ml-10 ml-5 gap-2">
             <a
+              aria-label="Check Leon's Instagram Page"
               href="https://instagram.com/leon.ades"
               className="bg-leon-black p-1 rounded-full"
             >
               <InstagramIcon className="text-leon-new-sand" />
             </a>
             <a
+              aria-label="Leon Ades' Email address"
               href="https://x.com"
               target="#blank"
               className="bg-leon-black p-1 rounded-full"

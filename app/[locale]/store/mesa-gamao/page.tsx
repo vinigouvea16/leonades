@@ -5,7 +5,7 @@ import React from 'react'
 
 export default function MesaGamao() {
   return (
-    <div className="flex h-screen bg-[url('/custom/mesagamao.jpg')] bg-cover bg-center">
+    <div className="flex h-screen bg-[url('/custom/mesagamao5.webp')] bg-cover bg-center">
       <MesaGamaoDesktop />
       <MesaGamaoMobile />
     </div>
@@ -26,7 +26,7 @@ function MesaGamaoDesktop() {
             height={100}
             className="w-fit h-fit pl-2"
           />
-          <Link href={'/store'}>
+          <Link href={'/store'} aria-label="Return to the Store page">
             <X className="text-white size-10" strokeWidth={1} />
           </Link>
         </div>
@@ -36,9 +36,7 @@ function MesaGamaoDesktop() {
           {/* left-side */}
           <div className="flex flex-col flex-grow w-3/4">
             <Image
-              src={
-                'https://res.cloudinary.com/dci7rpsws/image/upload/f_auto,q_auto/v1756752229/mesagamao_cysjzw.png'
-              }
+              src={'/custom/mesagamao2.webp'}
               alt={''}
               width={640}
               height={544}
@@ -61,21 +59,21 @@ function MesaGamaoDesktop() {
 
                 <div className="flex gap-4 justify-end">
                   <Image
-                    src={'/custom/mesagamao3.jpg'}
+                    src={'/custom/mesagamao3.webp'}
                     alt={''}
                     width={140}
                     height={150}
                     className="w-[137px] lg:h-[189px] object-cover object-center "
                   />
                   <Image
-                    src={'/custom/mesagamao4.jpg'}
+                    src={'/custom/mesagamao4.webp'}
                     alt={''}
                     width={140}
                     height={150}
                     className="w-[137px] lg:h-[189px] object-cover object-center "
                   />
                   <Image
-                    src={'/custom/mesagamao.jpg'}
+                    src={'/custom/mesagamao5.webp'}
                     alt={''}
                     width={140}
                     height={150}
@@ -139,15 +137,13 @@ function MesaGamaoMobile() {
             height={22}
             className="w-fit h-fit pl-0"
           />
-          <Link href={'/store'}>
+          <Link href={'/store'} aria-label="Return to the Store page">
             <X className="text-white size-9" strokeWidth={1} />
           </Link>
         </div>
         <div className="w-full flex flex-col space-y-3">
           <Image
-            src={
-              'https://res.cloudinary.com/dci7rpsws/image/upload/f_auto,q_auto/v1756752229/mesagamao_cysjzw.png'
-            }
+            src={'/custom/mesagamao2.webp'}
             alt={''}
             width={313}
             height={312}
@@ -181,28 +177,28 @@ function MesaGamaoMobile() {
             </div>
             <div className="grid grid-cols-2 gap-1.5 h-10/12">
               <Image
-                src={'/custom/mesagamao3.jpg'}
+                src={'/custom/mesagamao3.webp'}
                 alt={''}
                 width={85}
                 height={67}
                 className="w-fit h-full object-cover object-center "
               />
               <Image
-                src={'/custom/mesagamao.jpg'}
+                src={'/custom/mesagamao5.webp'}
                 alt={''}
                 width={85}
                 height={67}
                 className="w-fit h-full object-cover object-center "
               />
               <Image
-                src={'/custom/mesagamao4.jpg'}
+                src={'/custom/mesagamao4.webp'}
                 alt={''}
                 width={85}
                 height={67}
                 className="w-fit h-full object-cover object-center "
               />
               <Image
-                src={'/custom/mesagamao4.jpg'}
+                src={'/custom/mesagamao4.webp'}
                 alt={''}
                 width={85}
                 height={67}

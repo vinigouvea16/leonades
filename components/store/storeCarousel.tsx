@@ -40,7 +40,13 @@ export default function StoreCarousel({
 
   return (
     <div className="relative w-fit mx-3 mb-4">
-      <Carousel className="w-fit">
+      <Carousel
+        className="w-fit"
+        opts={{
+          align: 'start',
+          loop: true,
+        }}
+      >
         <CarouselContent className="-ml-1">
           {products.map((product, index) => (
             <CarouselItem

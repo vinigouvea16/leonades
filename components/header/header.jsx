@@ -74,7 +74,11 @@ export default function Header() {
       }}
     >
       <div className="flex justify-center items-center uppercase text-xs lg:text-sm font-normal relative min-h-[08px] py-2 lg:py-0">
-        <Link href="/" className="absolute left-0 no-underline text-black">
+        <Link
+          href="/"
+          className="absolute left-0 no-underline text-black"
+          aria-label="Navigate to home here"
+        >
           <svg
             className="w-8 h-10"
             xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +138,13 @@ export default function Header() {
             <LocaleSwitcher />
           </div>
 
-          <p className="hidden lg:block cursor-pointer m-0">Shop</p>
+          <Link
+            href="/store"
+            // className="absolute left-0 no-underline text-black"
+            aria-label="Navigate to the Store Page"
+          >
+            <p className="hidden lg:block cursor-pointer m-0">Shop</p>
+          </Link>
 
           <div className="flex items-center justify-center gap-2 cursor-pointer">
             <svg

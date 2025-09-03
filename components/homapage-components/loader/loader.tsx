@@ -31,7 +31,7 @@ export default function Loader() {
     >
       <div
         className="relative w-full h-full bg-cover bg-center"
-        style={{ backgroundImage: "url('/homepageheromobile3.png')" }}
+        style={{ backgroundImage: "url('/loaderwebp.webp')" }}
       >
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute inset-0 flex flex-col items-center justify-center">

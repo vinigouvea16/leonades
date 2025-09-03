@@ -5,7 +5,7 @@ import React from 'react'
 export default function StoreHero() {
   const t = useTranslations('StorePage')
   return (
-    <div className="relative h-screen flex bg-[url('/store/storeheroimg.jpg')] bg-cover bg-center">
+    <div className="relative h-screen flex bg-[url('/store/storeheroimg2.webp')] bg-cover bg-center">
       <motion.h1
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}

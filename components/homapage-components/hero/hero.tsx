@@ -9,7 +9,7 @@ export default function Hero() {
   const t = useTranslations('HomePageHero')
 
   return (
-    <div className="hidden lg:flex lg:h-screen lg:w-full lg:bg-[url('/homepagehero.jpg')] lg:bg-cover lg:bg-center lg:relative">
+    <div className="hidden lg:flex lg:h-screen lg:w-full lg:bg-[url('/homepagehero1.webp')] lg:bg-cover lg:bg-center lg:relative">
       <div className="absolute inset-0 bg-black/30 z-10" />
 
       <div className="flex h-full">

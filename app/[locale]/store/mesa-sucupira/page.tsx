@@ -5,7 +5,7 @@ import React from 'react'
 
 export default function MesaSucupira() {
   return (
-    <div className="flex h-screen bg-[url('/custom/custom4mbg.jpg')] bg-cover bg-center">
+    <div className="flex h-screen bg-[url('/custom/custom4mbg.webp')] bg-cover bg-center">
       <MesaSucupiraDesktop />
       <MesaSucupiraMobile />
     </div>
@@ -26,7 +26,7 @@ function MesaSucupiraDesktop() {
             height={100}
             className="w-fit h-fit pl-2 opacity-25"
           />
-          <Link href={'/store'}>
+          <Link href={'/store'} aria-label="Return to the Store page">
             <X className="text-white size-10" strokeWidth={1} />
           </Link>
         </div>
@@ -60,27 +60,21 @@ function MesaSucupiraDesktop() {
 
                 <div className="flex gap-4 justify-end">
                   <Image
-                    src={
-                      'https://res.cloudinary.com/dci7rpsws/image/upload/f_auto,q_auto/v1756751841/customfurniture_yp3kib.png'
-                    }
+                    src={'/custom/custom4m3.webp'}
                     alt={''}
                     width={140}
                     height={190}
                     className="w-[137px] lg:h-[189px] object-cover object-center "
                   />
                   <Image
-                    src={
-                      'https://res.cloudinary.com/dci7rpsws/image/upload/f_auto,q_auto/v1756751841/customfurniture_yp3kib.png'
-                    }
+                    src={'/custom/custom4m4.webp'}
                     alt={''}
                     width={140}
                     height={190}
                     className="w-[137px] lg:h-[189px] object-cover object-center "
                   />
                   <Image
-                    src={
-                      'https://res.cloudinary.com/dci7rpsws/image/upload/f_auto,q_auto/v1756751841/customfurniture_yp3kib.png'
-                    }
+                    src={'/custom/custom4m5.webp'}
                     alt={''}
                     width={140}
                     height={190}
@@ -144,13 +138,13 @@ function MesaSucupiraMobile() {
             height={22}
             className="w-fit h-fit pl-0"
           />
-          <Link href={'/store'}>
+          <Link href={'/store'} aria-label="Return to the Store page">
             <X className="text-white size-9" strokeWidth={1} />
           </Link>
         </div>
         <div className="w-full flex flex-col space-y-3">
           <Image
-            src={'/custom/custom4m.jpg'}
+            src={'/custom/custom4m.webp'}
             alt={''}
             width={313}
             height={312}
@@ -184,28 +178,28 @@ function MesaSucupiraMobile() {
             </div>
             <div className="grid grid-cols-2 gap-1.5 h-10/12">
               <Image
-                src={'/custom/custom4m.jpg'}
+                src={'/custom/custom4m3.webp'}
                 alt={''}
                 width={85}
                 height={67}
                 className="w-fit h-full object-cover object-center "
               />
               <Image
-                src={'/custom/custom4m.jpg'}
+                src={'/custom/custom4m4.webp'}
                 alt={''}
                 width={85}
                 height={67}
                 className="w-fit h-full object-cover object-center "
               />
               <Image
-                src={'/custom/custom4m.jpg'}
+                src={'/custom/custom4m5.webp'}
                 alt={''}
                 width={85}
                 height={67}
                 className="w-fit h-full object-cover object-center "
               />
               <Image
-                src={'/custom/custom4m.jpg'}
+                src={'/custom/custom4m6.webp'}
                 alt={''}
                 width={85}
                 height={67}

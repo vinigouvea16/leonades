@@ -36,8 +36,7 @@ export default function CustomFurniture() {
         </p>
       </div>
       {/* desktop */}
-      {/* desktop */}
-      <div className="gap-12 mx-12 lg:flex hidden h-[80vh] ">
+      <div className="gap-12 mx-12 lg:flex hidden h-[80vh]" id="custom">
         {/* custom furniture 1 */}
         <Link href={'/store/mesa-sucupira'} className="w-3/4">
           <Image

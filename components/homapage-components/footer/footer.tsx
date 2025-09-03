@@ -50,7 +50,12 @@ export default function Footer() {
       {/* sign */}
       <div className="my-6 flex flex-col justify-between space-y-2 text-center text-base font-light lg:flex-row lg:text-start">
         <p className="uppercase">2025. alrights reserved</p>
-        <a href="https://tailvinicss.dev">made by tailvinicss</a>
+        <a
+          href="https://tailvinicss.dev"
+          aria-label="Want to know more about the developer? Check Tailvinicss' portfolio"
+        >
+          made by tailvinicss
+        </a>
       </div>
     </div>
   )
