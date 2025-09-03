@@ -131,7 +131,9 @@ export default function CustomFurniture() {
         <div id="custom2" className="flex flex-col gap-2">
           <Link href={'/store/mesa-gamao'} className="w-full">
             <Image
-              src={'/custom/mesagamao.jpg'}
+              src={
+                'https://res.cloudinary.com/dci7rpsws/image/upload/v1756752229/mesagamao_cysjzw.png'
+              }
               alt={''}
               width={427}
               height={285}
