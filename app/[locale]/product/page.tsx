@@ -1,3 +1,4 @@
+'use client'
 import Footer from '@/components/homapage-components/footer/footer'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -8,6 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
+import { motion } from 'framer-motion'
 import { Undo } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -17,7 +19,12 @@ export default function ProductPage() {
   return (
     <div className="flex flex-col bg-leon-new-sand overflow-x-hidden" id="hero">
       <div className="flex flex-col  lg:my-auto mt-20 justify-center">
-        <div className="flex flex-col-reverse lg:flex-row items-center xl:w-11/12 justify-between mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut', delay: 0.5 }}
+          className="flex flex-col-reverse lg:flex-row items-center xl:w-11/12 justify-between mx-auto"
+        >
           <Image
             src={
               'https://res.cloudinary.com/dci7rpsws/image/upload/f_auto,q_auto/v1756751847/mesaiba_y6diqe.png'
@@ -50,16 +57,24 @@ export default function ProductPage() {
               Encomendar
             </Button>
           </div>
-        </div>
-        <h1
+        </motion.div>
+        <motion.h1
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut', delay: 1 }}
           className="text-[min(12vw,7rem)] lg:text-[min(10vw,8rem)] 2xl:text-[min(10vw,9rem)] font-light lg:bg-gradient-to-r lg:from-[#999]/50 lg:to-[#333]/100
             bg-gradient-to-t from-[#F0EDE6] from-0 to-[#333]/100 to-100%
             uppercase bg-clip-text text-transparent h-fit mx-auto text-center"
         >
           Mesa Ibá
-        </h1>
+        </motion.h1>
       </div>
-      <div className="flex flex-col items-center space-y-12">
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: 'easeOut', delay: 1.2 }}
+        className="flex flex-col items-center space-y-12"
+      >
         <p className="lg:text-xl font-light text-center mx-3 lg:w-2/3">
           A Mesa Ibá, com seu tampo redondo, é uma mesa de jantar que pode ser
           feita em diferentes diâmetros. O chanfro do tampo e bordas bem
@@ -72,7 +87,7 @@ export default function ProductPage() {
             Back
           </Button>
         </Link>
-      </div>
+      </motion.div>
       <MyCarouselDesktop />
       <MyCarouselMobile />
       <Footer />
