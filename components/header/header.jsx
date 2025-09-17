@@ -1,6 +1,7 @@
 'use client'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import LocaleSwitcher from '../LocaleSwitcher'
 import { background, opacity } from './anim'
@@ -9,27 +10,51 @@ import Nav from './nav'
 const DESKTOP_BREAKPOINT = 1024
 
 export default function Header() {
+  const router = useRouter()
   const [isActive, setIsActive] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
   const [isDesktop, setIsDesktop] = useState(false)
   const [hasMounted, setHasMounted] = useState(false)
+  const [isMouseAtTop, setIsMouseAtTop] = useState(false)
 
   useEffect(() => {
     const checkIsDesktop = () => {
       setIsDesktop(window.innerWidth >= DESKTOP_BREAKPOINT)
     }
-
     checkIsDesktop()
     setHasMounted(true)
     window.addEventListener('resize', checkIsDesktop)
-
     return () => window.removeEventListener('resize', checkIsDesktop)
   }, [])
 
   useEffect(() => {
+    const handleMouseMove = e => {
+      if (!isActive) {
+        const mouseAtTop = e.clientY < 80
+        setIsMouseAtTop(mouseAtTop)
+      }
+    }
+
+    if (hasMounted) {
+      window.addEventListener('mousemove', handleMouseMove)
+    }
+
+    return () => {
+      if (hasMounted) {
+        window.removeEventListener('mousemove', handleMouseMove)
+      }
+    }
+  }, [hasMounted, isActive])
+
+  useEffect(() => {
     const handleScroll = () => {
       if (isActive) {
+        return
+      }
+
+      if (isMouseAtTop && !isActive) {
+        setIsVisible(true)
         return
       }
 
@@ -40,22 +65,40 @@ export default function Header() {
       }
       setLastScrollY(window.scrollY)
     }
-
     if (hasMounted) {
-      if (isDesktop && window.scrollY === 0) {
+      if (isDesktop && window.scrollY === 0 && !isMouseAtTop && !isActive) {
         setIsVisible(false)
       } else if (!isDesktop && window.scrollY === 0) {
+        setIsVisible(true)
+      } else if (isMouseAtTop && !isActive) {
         setIsVisible(true)
       }
       window.addEventListener('scroll', handleScroll)
     }
-
     return () => {
       if (hasMounted) {
         window.removeEventListener('scroll', handleScroll)
       }
     }
-  }, [lastScrollY, isActive, isDesktop, hasMounted])
+  }, [lastScrollY, isActive, isDesktop, hasMounted, isMouseAtTop])
+
+  const closeMenu = () => {
+    setIsActive(false)
+  }
+
+  const handleLinkClick = (e, href) => {
+    e.preventDefault()
+    closeMenu()
+    setTimeout(() => {
+      router.push(href)
+    }, 400)
+  }
+
+  useEffect(() => {
+    if (isMouseAtTop && hasMounted && !isActive) {
+      setIsVisible(true)
+    }
+  }, [isMouseAtTop, hasMounted, isActive])
 
   const animateY = isVisible ? 0 : '-100%'
   const animateOpacity = isDesktop && !isVisible && window.scrollY === 0 ? 0 : 1
@@ -69,7 +112,7 @@ export default function Header() {
       }}
       animate={{ opacity: hasMounted ? 1 : 0, y: animateY }}
       transition={{
-        opacity: { duration: 5 },
+        opacity: { duration: 2 },
         y: { duration: 0.5, ease: 'easeInOut' },
       }}
     >
@@ -78,6 +121,7 @@ export default function Header() {
           href="/"
           className="absolute left-0 no-underline text-black"
           aria-label="Navigate to home here"
+          // onClick={e => handleLinkClick(e, '/')}
         >
           <svg
             className="w-8 h-10"
@@ -91,7 +135,6 @@ export default function Header() {
             <path stroke="#000" strokeWidth={9} d="m3 428 57-209h196l58 208" />
           </svg>
         </Link>
-
         <button
           type="button"
           onClick={() => {
@@ -128,7 +171,6 @@ export default function Header() {
             </motion.p>
           </div>
         </button>
-
         <motion.div
           variants={opacity}
           animate={!isActive ? 'open' : 'closed'}
@@ -137,15 +179,13 @@ export default function Header() {
           <div className="hidden lg:flex justify-end items-center">
             <LocaleSwitcher />
           </div>
-
           <Link
             href="/store"
-            // className="absolute left-0 no-underline text-black"
             aria-label="Navigate to the Store Page"
+            onClick={e => handleLinkClick(e, '/store')}
           >
             <p className="hidden lg:block cursor-pointer m-0">Shop</p>
           </Link>
-
           <div className="flex items-center justify-center gap-2 cursor-pointer">
             <svg
               width="19"
@@ -166,15 +206,15 @@ export default function Header() {
           </div>
         </motion.div>
       </div>
-
       <motion.div
         variants={background}
         initial="initial"
         animate={isActive ? 'open' : 'closed'}
         className="bg-black opacity-50 h-full w-full absolute left-0 top-full"
       />
-
-      <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
+      <AnimatePresence mode="wait">
+        {isActive && <Nav closeMenu={closeMenu} />}
+      </AnimatePresence>
     </motion.div>
   )
 }

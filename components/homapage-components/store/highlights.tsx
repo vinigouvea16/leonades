@@ -2,6 +2,7 @@
 import { useFeaturedProducts } from '@/lib/hooks/useFeaturedProducts'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 export default function Highlights() {
@@ -58,13 +59,15 @@ export default function Highlights() {
     <div className="lg:h-[120vh] flex flex-col lg:mx-5 gap-2">
       <h1 className="text-4xl font-light">{t('highlights-h1')}</h1>
 
-      {/* Layout diferente para mobile e desktop */}
       <div className="h-[90%]">
-        {/* MOBILE LAYOUT */}
+        {/* MOBILE */}
         <div className="flex flex-col h-full gap-8 lg:hidden">
-          {/* Primeiro produto - ocupa 60% da altura */}
+          {/* primeiro produto */}
           {featuredProducts[0] && (
-            <div className="flex gap-2">
+            <Link
+              href={`/product/${featuredProducts[0].handle}?from=home`}
+              className="flex gap-2 no-underline text-black brightness-90 hover:brightness-100"
+            >
               <div className="flex-1">
                 <Image
                   src={
@@ -92,13 +95,16 @@ export default function Highlights() {
                   )}
                 </p>
               </div>
-            </div>
+            </Link>
           )}
 
           <div className="flex flex-col gap-3">
-            {/* Segundo produto */}
+            {/* segundo produto */}
             {featuredProducts[1] && (
-              <div className="flex flex-col">
+              <Link
+                href={`/product/${featuredProducts[1].handle}?from=home`}
+                className="flex flex-col no-underline text-black brightness-90 hover:brightness-100"
+              >
                 <div>
                   <Image
                     src={
@@ -129,12 +135,15 @@ export default function Highlights() {
                     )}
                   </p>
                 </div>
-              </div>
+              </Link>
             )}
 
-            {/* Terceiro produto */}
+            {/* terceiro produto */}
             {featuredProducts[2] && (
-              <div className="flex flex-col">
+              <Link
+                href={`/product/${featuredProducts[2].handle}?from=home`}
+                className="flex flex-col no-underline text-black brightness-90 hover:brightness-100"
+              >
                 <div>
                   <Image
                     src={
@@ -165,17 +174,20 @@ export default function Highlights() {
                     )}
                   </p>
                 </div>
-              </div>
+              </Link>
             )}
           </div>
         </div>
 
-        {/* DESKTOP LAYOUT - Mantém o grid original */}
+        {/* DESKTOP */}
         <div className="hidden lg:grid grid-cols-3 grid-rows-4 gap-5 h-full">
-          {/* Primeiro produto - primeira linha */}
+          {/* primeira linha */}
           {featuredProducts[0] && (
             <>
-              <div className="col-span-2 row-span-2">
+              <Link
+                href={`/product/${featuredProducts[0].handle}?from=home`}
+                className="col-span-2 row-span-2 no-underline brightness-90 hover:brightness-100"
+              >
                 <Image
                   src={
                     featuredProducts[0].displayImage?.url ||
@@ -189,33 +201,42 @@ export default function Highlights() {
                   height={553}
                   className="w-full h-full object-cover"
                 />
-              </div>
+              </Link>
               <div
                 className="flex flex-col justify-end row-span-2"
                 id="product-info"
               >
-                <div className="flex w-full justify-between font-medium text-xl">
-                  <p>{featuredProducts[0].title}</p>
-                  <p>{featuredProducts[0].metafield?.value || '2024'}</p>
-                </div>
-                <p className="font-light text-xl mt-1">
-                  {formatPrice(
-                    featuredProducts[0].priceRange.minVariantPrice.amount,
-                    featuredProducts[0].priceRange.minVariantPrice.currencyCode
-                  )}
-                </p>
+                <Link
+                  href={`/product/${featuredProducts[0].handle}?from=home`}
+                  className="no-underline text-black brightness-90 hover:brightness-100"
+                >
+                  <div className="flex w-full justify-between font-medium text-xl">
+                    <p>{featuredProducts[0].title}</p>
+                    <p>{featuredProducts[0].metafield?.value || '2024'}</p>
+                  </div>
+                  <p className="font-light text-xl mt-1">
+                    {formatPrice(
+                      featuredProducts[0].priceRange.minVariantPrice.amount,
+                      featuredProducts[0].priceRange.minVariantPrice
+                        .currencyCode
+                    )}
+                  </p>
+                </Link>
               </div>
             </>
           )}
 
-          {/* Segunda linha */}
+          {/* segunda linha */}
           <div className="col-span-1 row-span-2 flex flex-col justify-end">
-            {/* Placeholder */}
+            {/* placeholder */}
           </div>
 
-          {/* Segundo produto */}
+          {/* segundo produto */}
           {featuredProducts[1] && (
-            <div className="flex flex-col col-span-1 row-span-2">
+            <Link
+              href={`/product/${featuredProducts[1].handle}?from=home`}
+              className="flex flex-col col-span-1 row-span-2 no-underline text-black brightness-90 hover:brightness-100"
+            >
               <Image
                 src={
                   featuredProducts[1].displayImage?.url ||
@@ -241,12 +262,15 @@ export default function Highlights() {
                   )}
                 </p>
               </div>
-            </div>
+            </Link>
           )}
 
-          {/* Terceiro produto */}
+          {/* terceiro produto */}
           {featuredProducts[2] && (
-            <div className="flex flex-col col-span-1 row-span-2">
+            <Link
+              href={`/product/${featuredProducts[2].handle}?from=home`}
+              className="flex flex-col col-span-1 row-span-2 no-underline text-black brightness-90 hover:brightness-100"
+            >
               <Image
                 src={
                   featuredProducts[2].displayImage?.url ||
@@ -272,7 +296,7 @@ export default function Highlights() {
                   )}
                 </p>
               </div>
-            </div>
+            </Link>
           )}
         </div>
       </div>

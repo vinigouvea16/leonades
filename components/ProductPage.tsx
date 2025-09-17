@@ -9,6 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
+import { useRouter } from '@/i18n/navigation'
 import { useProduct } from '@/lib/hooks/useProduct'
 import { motion } from 'framer-motion'
 import { ChevronsDown, Undo } from 'lucide-react'
@@ -25,6 +26,15 @@ export default function ProductPage({ handle }: ProductPageProps) {
   const t = useTranslations('Product')
   const { product, loading, error } = useProduct(handle)
   const [showScrollIndicator, setShowScrollIndicator] = useState(false)
+  const router = useRouter()
+
+  const handleBack = () => {
+    if (window.history.length > 1) {
+      router.back()
+    } else {
+      router.push('/store')
+    }
+  }
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -222,7 +232,12 @@ export default function ProductPage({ handle }: ProductPageProps) {
           )}
         </div>
         <Link href={'/store'}>
-          <Button variant="leon" size="store" className="lg:text-xl text-lg">
+          <Button
+            variant="leon"
+            size="store"
+            className="lg:text-xl text-lg"
+            onClick={handleBack}
+          >
             <Undo />
             {t('back')}
           </Button>

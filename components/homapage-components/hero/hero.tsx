@@ -10,7 +10,7 @@ export default function Hero() {
 
   return (
     <div className="hidden lg:flex lg:h-screen lg:w-full lg:bg-[url('/homepagehero1.webp')] lg:bg-cover lg:bg-center lg:relative">
-      <div className="absolute inset-0 bg-black/30 z-10" />
+      <div className="absolute inset-0 bg-black/20 z-10" />
 
       <div className="flex h-full">
         <div className="flex flex-col items-start my-auto ml-20 2xl:ml-40">

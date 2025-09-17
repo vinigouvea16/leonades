@@ -6,7 +6,6 @@ import { height } from '../anim'
 import Body from './Body'
 import Footer from './Footer'
 import Image from './Image'
-import styles from './style.module.scss'
 
 const rawLinks = [
   { key: 'home', href: '/', src: 'nav/home.jpg' },
@@ -16,9 +15,8 @@ const rawLinks = [
   { key: 'contact', href: '/contact', src: 'nav/contact.jpg' },
 ]
 
-export default function Index() {
-  const t = useTranslations('Navbar') // namespace do seu JSON de tradução
-
+export default function Index({ closeMenu }) {
+  const t = useTranslations('Navbar')
   const links = rawLinks.map(link => ({
     ...link,
     title: t(link.key),
@@ -35,14 +33,15 @@ export default function Index() {
       initial="initial"
       animate="enter"
       exit="exit"
-      className={styles.nav}
+      className="overflow-hidden "
     >
-      <div className={styles.wrapper}>
-        <div className={styles.container}>
+      <div className="flex gap-12 mb-20 lg:mb-0 lg:justify-between">
+        <div className="flex flex-col justify-between">
           <Body
             links={links}
             selectedLink={selectedLink}
             setSelectedLink={setSelectedLink}
+            closeMenu={closeMenu}
           />
           <Footer />
         </div>
