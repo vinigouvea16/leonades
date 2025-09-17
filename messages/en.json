@@ -54,5 +54,8 @@
   },
   "StorePage": {
     "hero": "Products."
+  },
+  "Product": {
+    "back": "Back"
   }
 }

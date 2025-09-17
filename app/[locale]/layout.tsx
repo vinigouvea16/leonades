@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono, Outfit } from 'next/font/google'
 import '../globals.css'
-import NavBar from '@/components/navbar'
 import { routing } from '@/i18n/routing'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { notFound } from 'next/navigation'
@@ -50,7 +49,6 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} antialiased font-outfit`}
       >
         <NextIntlClientProvider>
-          {/* <NavBar /> */}
           <Header />
           {children}
         </NextIntlClientProvider>

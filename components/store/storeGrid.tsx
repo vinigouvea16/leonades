@@ -11,7 +11,6 @@ interface StoreGridProps {
 
 export default function StoreGrid({
   products,
-  activeProduct,
   setActiveProduct,
 }: StoreGridProps) {
   return (

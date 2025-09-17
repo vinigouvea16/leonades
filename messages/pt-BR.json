@@ -54,5 +54,8 @@
   },
   "StorePage": {
     "hero": "Produtos."
+  },
+  "Product": {
+    "back": "Voltar"
   }
 }

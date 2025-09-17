@@ -17,10 +17,7 @@ interface StoreCarouselProps {
   onChange?: (index: number) => void
 }
 
-export default function StoreCarousel({
-  products,
-  onChange,
-}: StoreCarouselProps) {
+export default function StoreCarousel({ products }: StoreCarouselProps) {
   // const [api, setApi] = React.useState<any>()
   // const [activeIndex, setActiveIndex] = React.useState(0)
 
