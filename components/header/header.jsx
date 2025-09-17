@@ -148,7 +148,7 @@ export default function Header() {
         >
           <div
             className={`w-[22.5px] relative pointer-events-none
-              before:content-[''] before:h-px before:w-full before:bg-black before:relative before:block before:transition-all before:duration-1000 before:ease-[cubic-bezier(0.76,0,0.24,1)] before:top-1
+              before:content-[''] before:h-px before:w-full before:bg-black before:relative before:block before:transition-all before:duration-1000 before:top-1
               after:content-[''] after:h-px after:w-full after:bg-black after:relative after:block after:transition-all after:duration-1000 before:ease-[cubic-bezier(0.76,0,0.24,1)] after:-top-1
               ${
                 isActive

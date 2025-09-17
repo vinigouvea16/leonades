@@ -66,7 +66,7 @@ export default function CartDrawer() {
 
   return (
     <Drawer open={state.isOpen} onOpenChange={closeCart}>
-      <DrawerContent className="h-full h-screen text-[#764B28] px-3 bg-leon-new-sand flex flex-col">
+      <DrawerContent className="h-full text-[#764B28] px-3 bg-leon-new-sand flex flex-col">
         <div className="lg:mx-auto 2xl:w-4/5 w-full flex flex-col flex-1">
           <DrawerHeader className="text-center mb-3 flex-shrink-0">
             <div className="flex justify-between items-center">
