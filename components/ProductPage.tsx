@@ -10,7 +10,8 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import { useRouter } from '@/i18n/navigation'
-import { useProduct } from '@/lib/hooks/useProduct'
+import { useAddToCart } from '@/lib/hooks/useAddToCart'
+import { type ProductVariant, useProduct } from '@/lib/hooks/useProduct'
 import { motion } from 'framer-motion'
 import { ChevronsDown, Undo } from 'lucide-react'
 import { useTranslations } from 'next-intl'
@@ -28,8 +29,56 @@ export default function ProductPage({ handle }: ProductPageProps) {
   const [showScrollIndicator, setShowScrollIndicator] = useState(false)
   const router = useRouter()
 
+  const { addToCart } = useAddToCart()
+  const [isLoading, setIsLoading] = useState(false)
+  const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(
+    null
+  )
+
+  useEffect(() => {
+    if (product?.variants && product.variants.length > 0) {
+      setSelectedVariant(product.variants[0])
+    }
+  }, [product])
+
+  const handleAddToCart = async () => {
+    if (!selectedVariant || !product) return
+
+    setIsLoading(true)
+
+    try {
+      const success = addToCart(
+        {
+          productId: product.id,
+          variantId: selectedVariant.id,
+          title: product.name,
+          handle: product.handle,
+          image: product.images[0]?.url || '/placeholder-image.jpg',
+          price: {
+            amount: selectedVariant.price.amount,
+            currencyCode: selectedVariant.price.currencyCode,
+          },
+          quantity: 1,
+          maxQuantity: undefined,
+        },
+        {
+          openCart: true,
+          showToast: true,
+        }
+      )
+
+      if (success) {
+        console.log('Produto adicionado com sucesso!')
+      }
+    } catch (error) {
+      console.error('Erro ao adicionar ao carrinho:', error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   const handleBack = () => {
-    if (window.history.length > 1) {
+    if (typeof window !== 'undefined' && window.history.length > 1) {
       router.back()
     } else {
       router.push('/store')
@@ -115,10 +164,13 @@ export default function ProductPage({ handle }: ProductPageProps) {
     )
   }
 
-  const mainImage = product.images[0] || {
+  const mainImage = product.images?.[0] || {
     url: '/placeholder-image.jpg',
-    altText: product.name,
+    altText: product.name || 'Produto',
   }
+
+  const productTitle = product.name || 'Produto sem título'
+  const productYear = product.year || '—'
 
   const price =
     product.priceRange.min.amount === product.priceRange.max.amount
@@ -140,7 +192,7 @@ export default function ProductPage({ handle }: ProductPageProps) {
         >
           <motion.div
             animate={{
-              y: [0, 16, 0], // movimento
+              y: [0, 16, 0],
             }}
             transition={{
               duration: 1.5,
@@ -167,7 +219,7 @@ export default function ProductPage({ handle }: ProductPageProps) {
             width={1019}
             unoptimized
             height={605}
-            alt={mainImage.altText || product.name}
+            alt={mainImage.altText || productTitle}
             className="lg:w-2/3 h-full object-center object-contain max-h-[750px]"
           />
           <div className="flex flex-col lg:w-1/3 items-center lg:gap-12 gap-5">
@@ -176,19 +228,19 @@ export default function ProductPage({ handle }: ProductPageProps) {
                 <p className="text-leon-concrete">Produto</p>
                 <p className="text-leon-concrete">Ano</p>
                 <p className="text-leon-concrete">Status</p>
-                {product.tags.length > 0 && (
+                {product.tags?.length > 0 && (
                   <p className="text-leon-concrete">Categoria</p>
                 )}
                 <p className="text-leon-concrete">Preço</p>
               </div>
 
               <div className="flex flex-col items-start lg:text-xl">
-                <p className="text-leon-black">{product.name}</p>
-                <p className="text-leon-black">{product.year || '—'}</p>
+                <p className="text-leon-black">{productTitle}</p>
+                <p className="text-leon-black">{productYear}</p>
                 <p className="text-leon-black">
                   {product.availableForSale ? 'Disponível' : 'Indisponível'}
                 </p>
-                {product.tags.length > 0 && (
+                {product.tags?.length > 0 && (
                   <p className="text-leon-black">{product.tags[0]}</p>
                 )}
                 <p className="text-leon-black lg:text-2xl text-xl">
@@ -200,9 +252,14 @@ export default function ProductPage({ handle }: ProductPageProps) {
               variant="leon"
               size="store"
               className="text-lg"
-              disabled={!product.availableForSale}
+              disabled={!product.availableForSale || isLoading}
+              onClick={handleAddToCart}
             >
-              {product.availableForSale ? 'Encomendar' : 'Indisponível'}
+              {isLoading
+                ? `${t('addToCartButtonState1')}`
+                : product.availableForSale
+                  ? `${t('addToCartButtonState2')}`
+                  : `${t('addToCartButtonState3')}`}
             </Button>
           </div>
         </motion.div>
@@ -214,7 +271,7 @@ export default function ProductPage({ handle }: ProductPageProps) {
             bg-gradient-to-t from-[#F0EDE6] from-0 to-[#333]/100 to-100%
             uppercase bg-clip-text text-transparent h-fit mx-auto text-center"
         >
-          {product.name}
+          {productTitle}
         </motion.h1>
       </div>
       <motion.div
@@ -231,20 +288,18 @@ export default function ProductPage({ handle }: ProductPageProps) {
             <p>Produto sem descrição disponível.</p>
           )}
         </div>
-        <Link href={'/store'}>
-          <Button
-            variant="leon"
-            size="store"
-            className="lg:text-xl text-lg"
-            onClick={handleBack}
-          >
-            <Undo />
-            {t('back')}
-          </Button>
-        </Link>
+        <Button
+          variant="leon"
+          size="store"
+          className="lg:text-xl text-lg"
+          onClick={handleBack}
+        >
+          <Undo />
+          {t('back')}
+        </Button>
       </motion.div>
 
-      {product.images.length > 1 && (
+      {product.images && product.images.length > 1 && (
         <>
           <ProductCarouselDesktop images={product.images.slice(1)} />
           <ProductCarouselMobile images={product.images.slice(1)} />
@@ -341,7 +396,7 @@ function ProductCarouselMobile({ images }: ProductCarouselProps) {
     const calculatedWidth = fixedHeight * aspectRatio
 
     const minWidth = 300
-    const maxWidth = 500
+    const maxWidth = 700
     const normalizedWidth = Math.max(
       minWidth,
       Math.min(maxWidth, calculatedWidth)

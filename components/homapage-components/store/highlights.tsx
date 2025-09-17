@@ -66,7 +66,7 @@ export default function Highlights() {
           {featuredProducts[0] && (
             <Link
               href={`/product/${featuredProducts[0].handle}?from=home`}
-              className="flex gap-2 no-underline text-black brightness-90 hover:brightness-100"
+              className="flex gap-2 no-underline text-black lg:brightness-100 lg:hover:brightness-90"
             >
               <div className="flex-1">
                 <Image
@@ -103,7 +103,7 @@ export default function Highlights() {
             {featuredProducts[1] && (
               <Link
                 href={`/product/${featuredProducts[1].handle}?from=home`}
-                className="flex flex-col no-underline text-black brightness-90 hover:brightness-100"
+                className="flex flex-col no-underline text-black lg:brightness-100 lg:hover:brightness-90"
               >
                 <div>
                   <Image
@@ -142,7 +142,7 @@ export default function Highlights() {
             {featuredProducts[2] && (
               <Link
                 href={`/product/${featuredProducts[2].handle}?from=home`}
-                className="flex flex-col no-underline text-black brightness-90 hover:brightness-100"
+                className="flex flex-col no-underline text-black lg:brightness-100 lg:hover:brightness-90"
               >
                 <div>
                   <Image
@@ -186,7 +186,7 @@ export default function Highlights() {
             <>
               <Link
                 href={`/product/${featuredProducts[0].handle}?from=home`}
-                className="col-span-2 row-span-2 no-underline brightness-90 hover:brightness-100"
+                className="col-span-2 row-span-2 no-underline lg:brightness-100 lg:hover:brightness-90"
               >
                 <Image
                   src={
@@ -199,7 +199,7 @@ export default function Highlights() {
                   }
                   width={1119}
                   height={553}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover "
                 />
               </Link>
               <div
@@ -208,7 +208,7 @@ export default function Highlights() {
               >
                 <Link
                   href={`/product/${featuredProducts[0].handle}?from=home`}
-                  className="no-underline text-black brightness-90 hover:brightness-100"
+                  className="no-underline text-black lg:brightness-100 lg:hover:brightness-90"
                 >
                   <div className="flex w-full justify-between font-medium text-xl">
                     <p>{featuredProducts[0].title}</p>
@@ -235,7 +235,7 @@ export default function Highlights() {
           {featuredProducts[1] && (
             <Link
               href={`/product/${featuredProducts[1].handle}?from=home`}
-              className="flex flex-col col-span-1 row-span-2 no-underline text-black brightness-90 hover:brightness-100"
+              className="flex flex-col col-span-1 row-span-2 no-underline text-black lg:brightness-100 lg:hover:brightness-90"
             >
               <Image
                 src={
@@ -269,7 +269,7 @@ export default function Highlights() {
           {featuredProducts[2] && (
             <Link
               href={`/product/${featuredProducts[2].handle}?from=home`}
-              className="flex flex-col col-span-1 row-span-2 no-underline text-black brightness-90 hover:brightness-100"
+              className="flex flex-col col-span-1 row-span-2 no-underline text-black lg:brightness-100 lg:hover:brightness-90"
             >
               <Image
                 src={

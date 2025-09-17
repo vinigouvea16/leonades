@@ -56,6 +56,17 @@
     "hero": "Products."
   },
   "Product": {
-    "back": "Back"
+    "back": "Back",
+    "addToCartButtonState1": "Adding...",
+    "addToCartButtonState2": "Order",
+    "addToCartButtonState3": "Unavailable"
+  },
+  "Cart": {
+    "cartHeader": "Shopping Cart",
+    "emptyCartH1": "Your cart is empty",
+    "emptyCartH2": "Continue shopping",
+    "CartButton1State1": "Processing...",
+    "CartButton1State2": "Checkout",
+    "CartButton2": "Continue shopping"
   }
 }

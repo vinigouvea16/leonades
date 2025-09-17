@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono, Outfit } from 'next/font/google'
 import '../globals.css'
+import CartDrawer from '@/components/cart/CartDrawer'
+import { CartProvider } from '@/contexts/CartContext'
 import { routing } from '@/i18n/routing'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { notFound } from 'next/navigation'
@@ -49,8 +51,11 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} antialiased font-outfit`}
       >
         <NextIntlClientProvider>
-          <Header />
-          {children}
+          <CartProvider>
+            <Header />
+            {children}
+            <CartDrawer />
+          </CartProvider>
         </NextIntlClientProvider>
       </body>
     </html>

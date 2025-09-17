@@ -1,4 +1,5 @@
 'use client'
+import { useCart } from '@/contexts/CartContext'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -11,6 +12,7 @@ const DESKTOP_BREAKPOINT = 1024
 
 export default function Header() {
   const router = useRouter()
+  const { state: cartState, toggleCart } = useCart()
   const [isActive, setIsActive] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
@@ -82,6 +84,12 @@ export default function Header() {
     }
   }, [lastScrollY, isActive, isDesktop, hasMounted, isMouseAtTop])
 
+  useEffect(() => {
+    if (isMouseAtTop && hasMounted && !isActive) {
+      setIsVisible(true)
+    }
+  }, [isMouseAtTop, hasMounted, isActive])
+
   const closeMenu = () => {
     setIsActive(false)
   }
@@ -91,14 +99,8 @@ export default function Header() {
     closeMenu()
     setTimeout(() => {
       router.push(href)
-    }, 400)
+    }, 100)
   }
-
-  useEffect(() => {
-    if (isMouseAtTop && hasMounted && !isActive) {
-      setIsVisible(true)
-    }
-  }, [isMouseAtTop, hasMounted, isActive])
 
   const animateY = isVisible ? 0 : '-100%'
   const animateOpacity = isDesktop && !isVisible && window.scrollY === 0 ? 0 : 1
@@ -121,7 +123,7 @@ export default function Header() {
           href="/"
           className="absolute left-0 no-underline text-black"
           aria-label="Navigate to home here"
-          // onClick={e => handleLinkClick(e, '/')}
+          onClick={e => handleLinkClick(e, '/')}
         >
           <svg
             className="w-8 h-10"
@@ -147,7 +149,7 @@ export default function Header() {
           <div
             className={`w-[22.5px] relative pointer-events-none
               before:content-[''] before:h-px before:w-full before:bg-black before:relative before:block before:transition-all before:duration-1000 before:ease-[cubic-bezier(0.76,0,0.24,1)] before:top-1
-              after:content-[''] after:h-px after:w-full after:bg-black after:relative after:block after:transition-all after:duration-1000 after:ease-[cubic-bezier(0.76,0,0.24,1)] after:-top-1
+              after:content-[''] after:h-px after:w-full after:bg-black after:relative after:block after:transition-all after:duration-1000 before:ease-[cubic-bezier(0.76,0,0.24,1)] after:-top-1
               ${
                 isActive
                   ? 'before:rotate-[-45deg] before:top-0.5 after:rotate-45 after:-top-0.5'
@@ -186,7 +188,12 @@ export default function Header() {
           >
             <p className="hidden lg:block cursor-pointer m-0">Shop</p>
           </Link>
-          <div className="flex items-center justify-center gap-2 cursor-pointer">
+          <button
+            type="button"
+            onClick={toggleCart}
+            className="flex items-center justify-center gap-2 cursor-pointer bg-transparent border-none p-0"
+            aria-label="Abrir carrinho"
+          >
             <svg
               width="19"
               height="20"
@@ -202,8 +209,8 @@ export default function Header() {
                 strokeLinejoin="round"
               />
             </svg>
-            <p className="m-0">Cart(0)</p>
-          </div>
+            <p className="m-0 relative">Cart({cartState.totalQuantity})</p>
+          </button>
         </motion.div>
       </div>
       <motion.div
