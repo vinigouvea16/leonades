@@ -1,39 +1,11 @@
 import { getProductsList } from '@/lib/queries/getProductsList'
 import { NextResponse } from 'next/server'
 
-const bgColors = [
-  'bg-slate-100',
-  'bg-gray-100',
-  'bg-neutral-100',
-  'bg-stone-100',
-  'bg-amber-50',
-  'bg-orange-50',
-  'bg-red-50',
-  'bg-pink-50',
-  'bg-rose-50',
-  'bg-fuchsia-50',
-]
-
-const textColors = [
-  'text-slate-800',
-  'text-gray-800',
-  'text-neutral-800',
-  'text-stone-800',
-  'text-amber-800',
-  'text-orange-800',
-  'text-red-800',
-  'text-pink-800',
-  'text-rose-800',
-  'text-fuchsia-800',
-]
-
 export async function GET() {
   try {
     const shopifyProducts = await getProductsList()
-
-    const products = shopifyProducts.map((product, index) => {
-      const colorIndex = index % bgColors.length
-
+    
+    const products = shopifyProducts.map((product) => {
       return {
         id: product.id,
         name: product.title,
@@ -47,14 +19,24 @@ export async function GET() {
               currencyCode: product.priceRange.minVariantPrice.currencyCode,
             }
           : null,
-        bgColor: bgColors[colorIndex],
-        priceColor: textColors[colorIndex],
-        yearColor: textColors[colorIndex],
+        translations: {
+          pt: {
+            title: product.titlePt?.value || product.title,
+            description: product.descriptionPt?.value || product.description || 'Produto sem descrição',
+          },
+          en: {
+            title: product.titleEn?.value || product.title,
+            description: product.descriptionEn?.value || product.description || 'Product without description',
+          },
+          es: {
+            title: product.titleEs?.value || product.title,
+            description: product.descriptionEs?.value || product.description || 'Producto sin descripción',
+          }
+        }
       }
     })
-
+    
     const reversedProducts = products.reverse()
-
     return NextResponse.json({ products: reversedProducts })
   } catch (error) {
     console.error('Erro ao buscar lista de produtos:', error)

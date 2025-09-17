@@ -24,6 +24,12 @@ export type ShopifyProductSummary = {
     minVariantPrice: ShopifyPrice
   }
   yearMetafield: ShopifyMetafield | null
+  titlePt: ShopifyMetafield | null
+  titleEn: ShopifyMetafield | null
+  titleEs: ShopifyMetafield | null
+  descriptionPt: ShopifyMetafield | null
+  descriptionEn: ShopifyMetafield | null
+  descriptionEs: ShopifyMetafield | null
 }
 
 export async function getProductsList(): Promise<ShopifyProductSummary[]> {
@@ -57,6 +63,24 @@ export async function getProductsList(): Promise<ShopifyProductSummary[]> {
             metafield(namespace: "custom", key: "year") {
               value
             }
+            titlePt: metafield(namespace: "translations", key: "title_pt") {
+              value
+            }
+            titleEn: metafield(namespace: "translations", key: "title_en") {
+              value
+            }
+            titleEs: metafield(namespace: "translations", key: "title_es") {
+              value
+            }
+            descriptionPt: metafield(namespace: "translations", key: "description_pt") {
+              value
+            }
+            descriptionEn: metafield(namespace: "translations", key: "description_en") {
+              value
+            }
+            descriptionEs: metafield(namespace: "translations", key: "description_es") {
+              value
+            }
           }
         }
       }
@@ -79,6 +103,12 @@ export async function getProductsList(): Promise<ShopifyProductSummary[]> {
             minVariantPrice: ShopifyPrice
           }
           metafield: ShopifyMetafield | null
+          titlePt: ShopifyMetafield | null
+          titleEn: ShopifyMetafield | null
+          titleEs: ShopifyMetafield | null
+          descriptionPt: ShopifyMetafield | null
+          descriptionEn: ShopifyMetafield | null
+          descriptionEs: ShopifyMetafield | null
         }
       }[]
     }
@@ -86,7 +116,6 @@ export async function getProductsList(): Promise<ShopifyProductSummary[]> {
 
   return response.data.products.edges.map(edge => {
     const node = edge.node
-
     const allImages = node.images.edges.map(imgEdge => imgEdge.node)
     const firstImage = allImages[0] || node.featuredImage
 
@@ -98,6 +127,12 @@ export async function getProductsList(): Promise<ShopifyProductSummary[]> {
       firstImage: firstImage,
       priceRange: node.priceRange,
       yearMetafield: node.metafield,
+      titlePt: node.titlePt,
+      titleEn: node.titleEn,
+      titleEs: node.titleEs,
+      descriptionPt: node.descriptionPt,
+      descriptionEn: node.descriptionEn,
+      descriptionEs: node.descriptionEs,
     }
   })
 }

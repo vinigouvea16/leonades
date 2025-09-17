@@ -26,6 +26,7 @@ interface ProductPageProps {
 export default function ProductPage({ handle }: ProductPageProps) {
   const t = useTranslations('Product')
   const { product, loading, error } = useProduct(handle)
+  
   const [showScrollIndicator, setShowScrollIndicator] = useState(false)
   const router = useRouter()
 
@@ -225,13 +226,13 @@ export default function ProductPage({ handle }: ProductPageProps) {
           <div className="flex flex-col lg:w-1/3 items-center lg:gap-12 gap-5">
             <div className="flex gap-2 font-light text-nowrap">
               <div className="flex flex-col items-end lg:text-xl">
-                <p className="text-leon-concrete">Produto</p>
-                <p className="text-leon-concrete">Ano</p>
-                <p className="text-leon-concrete">Status</p>
+                <p className="text-leon-concrete">{t('product')}</p>
+                <p className="text-leon-concrete">{t('year')}</p>
+                <p className="text-leon-concrete">{t('status')}</p>
                 {product.tags?.length > 0 && (
-                  <p className="text-leon-concrete">Categoria</p>
+                  <p className="text-leon-concrete">{t('category')}</p>
                 )}
-                <p className="text-leon-concrete">Preço</p>
+                <p className="text-leon-concrete">{t('price')}</p>
               </div>
 
               <div className="flex flex-col items-start lg:text-xl">

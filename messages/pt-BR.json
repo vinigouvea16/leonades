@@ -59,7 +59,12 @@
     "back": "Voltar",
     "addToCartButtonState1": "Adicionando...",
     "addToCartButtonState2": "Encomendar",
-    "addToCartButtonState3": "Indisponível"
+    "addToCartButtonState3": "Indisponível",
+    "product": "Produto",
+    "year": "Ano",
+    "status": "Status",
+    "category": "Categoria",
+    "price": "Preço"
   },
   "Cart": {
     "cartHeader": "Carrinho de Compras",
