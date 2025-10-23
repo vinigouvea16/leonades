@@ -14,7 +14,18 @@ export type ShopifyMetafield = {
   value: string | null
 }
 
+export type ShopifyCollectionEdge = {
+  node: {
+    handle: string
+  }
+}
+
+export type ShopifyCollections = {
+  edges: ShopifyCollectionEdge[]
+}
+
 export type ShopifyProductSummary = {
+  collections: ShopifyCollections
   id: string
   title: string
   handle: string
@@ -81,6 +92,13 @@ export async function getProductsList(): Promise<ShopifyProductSummary[]> {
             descriptionEs: metafield(namespace: "translations", key: "description_es") {
               value
             }
+            collections(first: 5) {
+              edges {
+                node {
+                  handle
+                }
+              }
+            }
           }
         }
       }
@@ -109,6 +127,7 @@ export async function getProductsList(): Promise<ShopifyProductSummary[]> {
           descriptionPt: ShopifyMetafield | null
           descriptionEn: ShopifyMetafield | null
           descriptionEs: ShopifyMetafield | null
+          collections: ShopifyCollections
         }
       }[]
     }
@@ -127,6 +146,7 @@ export async function getProductsList(): Promise<ShopifyProductSummary[]> {
       firstImage: firstImage,
       priceRange: node.priceRange,
       yearMetafield: node.metafield,
+      collections: node.collections,
       titlePt: node.titlePt,
       titleEn: node.titleEn,
       titleEs: node.titleEs,

@@ -1,9 +1,8 @@
-import Custom from '@/components/homapage-components/custom/custom'
+import CustomProjectsSection from '@/components/CustomProjectTest'
 import FAQ from '@/components/homapage-components/faq/faq'
 import Footer from '@/components/homapage-components/footer/footer'
 import Hero from '@/components/homapage-components/hero/hero'
 import Loader from '@/components/homapage-components/loader/loader'
-import Highlights from '@/components/homapage-components/store/highlights'
 import StoreSection from '@/components/homapage-components/store/store'
 import SubHero from '@/components/homapage-components/subhero/sub-hero'
 import { setRequestLocale } from 'next-intl/server'
@@ -22,10 +21,9 @@ export default function HomePage({
       <Loader />
       <Hero />
       <SubHero />
-      <Highlights />
       <StoreSection />
       <FAQ />
-      <Custom />
+      <CustomProjectsSection />
       <Footer />
     </div>
   )

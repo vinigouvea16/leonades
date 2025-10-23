@@ -8,24 +8,27 @@ export async function GET(
   try {
     const { handle } = await context.params
 
-    // console.log('=== DEBUG ===')
+    // console.log('=== DEBUG CUSTOM PROJECT ===')
     // console.log('Handle:', handle)
 
     if (!handle) {
       return NextResponse.json(
-        { error: 'Handle do produto é obrigatório' },
+        { error: 'Handle do projeto é obrigatório' },
         { status: 400 }
       )
     }
 
-    const queryWithMetafields = `{
+    const query = `{
       product(handle: "${handle}") {
         id
         title
         handle
         description
-        availableForSale
-        images(first: 10) {
+        featuredImage {
+          url
+          altText
+        }
+        images(first: 20) {
           edges {
             node {
               url
@@ -35,30 +38,6 @@ export async function GET(
             }
           }
         }
-        priceRange {
-          minVariantPrice {
-            amount
-            currencyCode
-          }
-          maxVariantPrice {
-            amount
-            currencyCode
-          }
-        }
-        variants(first: 10) {
-          edges {
-            node {
-              id
-              title
-              price {
-                amount
-                currencyCode
-              }
-              availableForSale
-            }
-          }
-        }
-        tags
         titlePt: metafield(namespace: "translations", key: "title_pt") {
           value
         }
@@ -77,13 +56,23 @@ export async function GET(
         descriptionEs: metafield(namespace: "translations", key: "description_es") {
           value
         }
+        dimensions: metafield(namespace: "custom", key: "dimensions") {
+          value
+        }
         yearMetafield: metafield(namespace: "custom", key: "year") {
           value
+        }
+        collections(first: 5) {
+          edges {
+            node {
+              handle
+            }
+          }
         }
       }
     }`
 
-    // console.log('Query com metafields sendo enviada...')
+    console.log('Query para projeto customizado sendo enviada...')
 
     const response = await shopifyFetch<{
       product: {
@@ -91,77 +80,70 @@ export async function GET(
         title: string
         handle: string
         description: string
-        availableForSale: boolean
+        featuredImage: { url: string; altText: string } | null
         images: {
           edges: {
             node: {
-              width: number
-              height: number
               url: string
               altText: string | null
+              width: number
+              height: number
             }
           }[]
         }
-        priceRange: {
-          minVariantPrice: { amount: string; currencyCode: string }
-          maxVariantPrice: { amount: string; currencyCode: string }
-        }
-        variants: {
-          edges: {
-            node: {
-              id: string
-              title: string
-              price: { amount: string; currencyCode: string }
-              availableForSale: boolean
-            }
-          }[]
-        }
-        tags: string[]
         titlePt: { value: string } | null
         titleEn: { value: string } | null
         titleEs: { value: string } | null
         descriptionPt: { value: string } | null
         descriptionEn: { value: string } | null
         descriptionEs: { value: string } | null
+        dimensions: { value: string } | null
         yearMetafield: { value: string } | null
+        collections: {
+          edges: {
+            node: {
+              handle: string
+            }
+          }[]
+        }
       }
-    }>(queryWithMetafields)
+    }>(query)
 
     console.log('Resposta recebida:', !!response?.data?.product)
 
     if (!response?.data?.product) {
       return NextResponse.json(
-        { error: 'Produto não encontrado' },
+        { error: 'Projeto não encontrado' },
         { status: 404 }
       )
     }
 
     const rawProduct = response.data.product
 
-    const product = {
+    const collectionHandles = rawProduct.collections.edges.map(
+      edge => edge.node.handle
+    )
+    if (!collectionHandles.includes('projetos-sob-medida')) {
+      return NextResponse.json(
+        { error: 'Este produto não é um projeto customizado' },
+        { status: 404 }
+      )
+    }
+
+    const project = {
       id: rawProduct.id,
-      name: rawProduct.title,
+      title: rawProduct.title,
       handle: rawProduct.handle,
       description: rawProduct.description,
-      availableForSale: rawProduct.availableForSale,
+      featuredImage: rawProduct.featuredImage,
       images: rawProduct.images.edges.map(edge => ({
         url: edge.node.url,
         altText: edge.node.altText,
         width: edge.node.width,
         height: edge.node.height,
       })),
-      priceRange: {
-        min: rawProduct.priceRange.minVariantPrice,
-        max: rawProduct.priceRange.maxVariantPrice,
-      },
-      variants: rawProduct.variants.edges.map(edge => ({
-        id: edge.node.id,
-        title: edge.node.title,
-        price: edge.node.price,
-        availableForSale: edge.node.availableForSale,
-      })),
-      tags: rawProduct.tags,
       year: rawProduct.yearMetafield?.value || null,
+      dimensions: rawProduct.dimensions?.value || null,
       translations: {
         pt: {
           title: rawProduct.titlePt?.value || rawProduct.title,
@@ -181,10 +163,10 @@ export async function GET(
       },
     }
 
-    console.log('Produto processado com sucesso!')
-    return NextResponse.json({ product })
+    console.log('Projeto processado com sucesso!')
+    return NextResponse.json({ project })
   } catch (error) {
-    console.error('Erro ao buscar produto:', error)
+    console.error('Erro ao buscar projeto customizado:', error)
     return NextResponse.json(
       { error: 'Erro interno do servidor' },
       { status: 500 }
