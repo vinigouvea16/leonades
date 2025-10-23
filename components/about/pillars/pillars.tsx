@@ -12,13 +12,13 @@ export default function Pillars() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.7 }}
-      className="flex gap-12 flex-col font-light mb-12 relative overflow-x-hidden"
+      className="flex gap-6 flex-col font-light mb-6 relative overflow-x-hidden"
     >
       <div className="flex lg:mx-5 mx-3">
         {/* left-side */}
         <div className="lg:w-1/3 2xl:w-1/4 w-1/4 flex mr-5 relative">
           <div className="flex justify-between w-full items-center lg:pr-10 pr-4 mb-auto 2xl:text-xl lg:text-lg flex-col lg:flex-row">
-            [ {t('pillars')} ]
+            [ {t('aboutme')} ]
             <ArrowDownRight
               className="size-10 text-leon-black/75"
               strokeWidth={1}
@@ -40,10 +40,9 @@ export default function Pillars() {
           />
         </div>
         {/* right-side */}
-        <div className="lg:w-2/3 2xl:w-3/4 w-3/4 space-y-12 2xl:text-xl lg:text-lg">
+        <div className="lg:w-2/3 2xl:w-3/4 w-3/4 space-y-8 2xl:text-xl lg:text-lg">
           <div className="gap-5 flex lg:flex-row flex-col">
-            <p className="lg:w-1/2 2xl:text-justify">{t('pillarsp1')}</p>
-            <p className="lg:w-1/2 2xl:text-justify">{t('pillarsp2')}</p>
+            <p className="xl:text-justify">{t('pillarsp1')}</p>
           </div>
 
           <motion.div
@@ -62,8 +61,8 @@ export default function Pillars() {
           />
           <div className="gap-5 flex-col flex">
             <div className="gap-5 flex lg:flex-row flex-col ">
-              <p className="lg:w-1/2 2xl:text-justify">{t('pillarsp3')}</p>
-              <p className="lg:w-1/2 2xl:text-justify">{t('pillarsp4')}</p>
+              <p className="lg:w-1/2 xl:text-justify">{t('pillarsp2')}</p>
+              <p className="lg:w-1/2 xl:text-justify">{t('pillarsp3')}</p>
             </div>
             <Link className="flex justify-end items-center" href={'/store'}>
               <span className="text-lg">{t('storeLink')}</span>
@@ -73,6 +72,7 @@ export default function Pillars() {
         </div>
       </div>
       <motion.div
+        id="mentorship"
         variants={{
           hidden: { width: 0 },
           visible: {
