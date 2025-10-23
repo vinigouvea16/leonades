@@ -1,6 +1,6 @@
 'use client'
 import Footer from '@/components/homapage-components/footer/footer'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { useLocale } from 'next-intl'
 import Image from 'next/image'
 import { useParams, useRouter } from 'next/navigation'
@@ -74,7 +74,6 @@ export default function CustomProject() {
           throw new Error('Projeto não encontrado')
         }
 
-        // Aplicar tradução baseada no locale
         const translatedProject: CustomProject = {
           ...data.project,
           title: data.project.translations[locale]?.title || data.project.title,
@@ -257,9 +256,42 @@ function CustomProjectDesktop({ projectData }: { projectData: CustomProject }) {
 function CustomProjectMobile({ projectData }: { projectData: CustomProject }) {
   const images = projectData.images
   const router = useRouter()
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
+    null
+  )
 
-  // Galeria com todas as imagens para mobile (a partir da 7ª imagem)
   const galleryImages = images.slice(6)
+
+  const openModal = (index: number) => {
+    setSelectedImageIndex(index)
+    document.body.style.overflow = 'hidden'
+  }
+
+  const closeModal = () => {
+    setSelectedImageIndex(null)
+    document.body.style.overflow = 'auto'
+  }
+
+  const goToPrevious = () => {
+    if (selectedImageIndex !== null && selectedImageIndex > 0) {
+      setSelectedImageIndex(selectedImageIndex - 1)
+    }
+  }
+
+  const goToNext = () => {
+    if (
+      selectedImageIndex !== null &&
+      selectedImageIndex < galleryImages.length - 1
+    ) {
+      setSelectedImageIndex(selectedImageIndex + 1)
+    }
+  }
+
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+  }, [])
 
   return (
     <div className="lg:hidden flex flex-col">
@@ -339,19 +371,24 @@ function CustomProjectMobile({ projectData }: { projectData: CustomProject }) {
           />
         )}
 
-        {/* Galeria com todas as fotos restantes vindas do Shopify */}
         {galleryImages.length > 0 && (
           <div className="flex h-[30vh] gap-3 w-full mt-3 overflow-x-auto px-3">
             {galleryImages.map((image, index) => (
-              <Image
+              <button
                 key={index}
-                src={image.url}
-                alt={image.altText || `${projectData.title} - ${index + 7}`}
-                unoptimized
-                width={121}
-                height={171}
-                className="object-cover min-w-[121px] h-full"
-              />
+                type="button"
+                onClick={() => openModal(index)}
+                className="min-w-[121px] h-full focus:outline-none focus:ring-2 focus:ring-leon-black/50 rounded"
+              >
+                <Image
+                  src={image.url}
+                  alt={image.altText || `${projectData.title} - ${index + 7}`}
+                  unoptimized
+                  width={121}
+                  height={171}
+                  className="object-cover min-w-[121px] h-full cursor-pointer hover:opacity-90 transition-opacity"
+                />
+              </button>
             ))}
           </div>
         )}
@@ -365,6 +402,72 @@ function CustomProjectMobile({ projectData }: { projectData: CustomProject }) {
           Voltar
         </button>
       </div>
+
+      {/* modal */}
+      {selectedImageIndex !== null && (
+        // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
+        <div
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center"
+          onClick={closeModal}
+        >
+          <button
+            type="button"
+            onClick={closeModal}
+            className="absolute top-4 right-4 text-leon-concrete hover:text-white/70 transition-colors z-10"
+          >
+            <X className="size-8" strokeWidth={1.5} />
+          </button>
+
+          {selectedImageIndex > 0 && (
+            <button
+              type="button"
+              onClick={e => {
+                e.stopPropagation()
+                goToPrevious()
+              }}
+              className="absolute left-4 text-leon-concrete hover:text-white/70 transition-colors z-10"
+            >
+              <ChevronLeft className="size-10" strokeWidth={1.5} />
+            </button>
+          )}
+
+          {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+          <div
+            className="relative w-full h-full flex items-center justify-center p-4"
+            onClick={e => e.stopPropagation()}
+          >
+            <Image
+              src={galleryImages[selectedImageIndex].url}
+              alt={
+                galleryImages[selectedImageIndex].altText ||
+                `${projectData.title} - ${selectedImageIndex + 7}`
+              }
+              unoptimized
+              width={galleryImages[selectedImageIndex].width}
+              height={galleryImages[selectedImageIndex].height}
+              className="object-contain max-h-full max-w-full"
+            />
+          </div>
+
+          {selectedImageIndex < galleryImages.length - 1 && (
+            <button
+              type="button"
+              onClick={e => {
+                e.stopPropagation()
+                goToNext()
+              }}
+              className="absolute right-4 text-leon-concrete hover:text-white/70 transition-colors z-10"
+            >
+              <ChevronRight className="size-10" strokeWidth={1.5} />
+            </button>
+          )}
+
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm font-light">
+            {selectedImageIndex + 1} / {galleryImages.length}
+          </div>
+        </div>
+      )}
+
       <Footer />
     </div>
   )
