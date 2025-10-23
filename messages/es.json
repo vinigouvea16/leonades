@@ -3,6 +3,9 @@
     "address": "Dirección",
     "contact": "Contacto"
   },
+  "navbarfooter": {
+    "contact": "Contacto"
+  },
   "home": {
     "subhero-h1": "Derechos de autor",
     "subhero-p": "Para aquellos que buscan muebles exclusivos, Leon Ades está listo para crear una pieza que combine diseño único y materiales de primera línea. Solo él puede ofrecer un diseño alineado con el confort y una artesanía exquisita, asegurando que su hogar sea más bello y confortable.",
@@ -10,16 +13,17 @@
     "contactLink": "Contacto",
     "custom-made-h1": "Hecho a Medida",
     "custom-made-p": "Proyectos elaborados con foco en la durabilidad y la elección criteriosa de materiales. La visión del cliente es traducida en excelencia de diseño y acabado, resultando en piezas a medida. Para más detalles sobre creaciones personalizadas, contáctenos:",
-    "FAQQ1": "¿Cómo funciona el envío?",
-    "FAQA1": "Respuesta pregunta 1 ES",
-    "FAQQ2": "¿Cuál es el plazo de entrega?",
-    "FAQA2": "Respuesta pregunta 2 ES",
-    "FAQQ3": "¿Son maderas legales?",
-    "FAQA3": "Respuesta pregunta 3 ES",
-    "FAQQ4": "¿Realizas proyectos a medida?",
-    "FAQA4": "Respuesta pregunta 4 ES",
-    "FAQQ5": "¿Clases/Talleres?",
-    "FAQA5": "Respuesta pregunta 5 ES"
+    "FAQQ1": "¿Hacen envíos a otros países?",
+    "FAQA1": "Sí. Las piezas pueden ser enviadas internacionalmente, con embalaje y transporte adecuados para cada destino. El seguimiento se realiza de forma personalizada, garantizando seguridad durante todo el trayecto.",
+    "FAQQ2": "¿Cuánto tiempo tardaré en recibir mi pedido?",
+    "FAQA2": "Las piezas listas para la entrega se despachan lo antes posible. Los proyectos a medida pueden tardar hasta 90 días, dependiendo de la complejidad y la agenda del taller de carpintería. Todas las piezas se producen manualmente, lo que hace que cada proceso sea único y requiere el tiempo necesario para garantizar precisión y calidad.",
+    "FAQQ3": "¿Puedo personalizar una pieza?",
+    "FAQA3": "Sí. El trabajo a medida forma parte del proceso creativo. Las dimensiones, materiales y acabados pueden ajustarse para satisfacer las necesidades de cada espacio y proyecto.",
+    "FAQQ4": "¿Imparte clases o cursos?",
+    "FAQA4": "Sí. El formato es de mentoría: cada alumno trae su propio proyecto y es acompañado en todas las etapas de desarrollo —desde el dibujo inicial hasta la ejecución final, pasando por técnicas, procesos y acabados. Los grupos son pequeños y las clases se imparten dos veces por semana.",
+    "FAQA4Span": "[Clic para ver más]",
+    "FAQQ5": "¿Las maderas utilizadas están certificadas?",
+    "FAQA5": "Sí. Todas las maderas son de origen controlado y provienen de proveedores que siguen prácticas de manejo sostenible. El respeto por la materia prima es parte esencial del proceso."
   },
   "HomePageHero": {
     "h2": "Piezas artesanales con significado.",
@@ -29,28 +33,28 @@
     "home": "Inicio",
     "shop": "Tienda",
     "about": "Acerca de",
-    "showcase": "Vitrina",
+    "showcase": "desafío",
     "contact": "Contacto"
   },
   "about": {
-    "hero": "“Como diseñador, creo que el diseño tiene una gran responsabilidad social y debe ser pensado como un agente transformador de hábitos entre las personas.”",
+    "hero": "“Cada creación nace con el propósito de unir belleza estética, permanencia y presencia en el espacio.”",
     "aboutme": "Sobre mí",
     "shop": "Tienda",
-    "showcase": "Vitrina",
+    "showcase": "Escaparate",
     "contact": "Contacto",
     "pillars": "Pilares",
-    "pillarsp1": "Leon Ades se graduó en diseño de producto y encontró en la carpintería una forma de materializar sus ideas, uniendo técnicas milenarias con diseños contemporáneos.",
-    "pillarsp2": "Se enamoró de la carpintería en 2015. Desde entonces se dedica intensamente a la creación de muebles que diseña y ejecuta íntegramente en su taller utilizando técnicas tradicionales de carpintería aplicada. En sus diseños busca algo que flirtee tanto con lo geométrico y racional como con las curvas y la organicidad.",
-    "pillarsp3": "Crea piezas que unen belleza estética con atemporalidad para durar generaciones.",
+    "pillarsp1": "Leon Ades inició su trayectoria en 2015 en el Center for Fine Woodworking, en Nueva Zelanda, donde descubrió en la carpintería una forma de materializar ideas y explorar el diálogo entre mano, materia y forma. De regreso a Brasil, se graduó en Diseño de Producto por el IED-SP, consolidando un lenguaje propio que une técnicas tradicionales de carpintería con una mirada contemporánea sobre el diseño.",
+    "pillarsp2": "Desde entonces, desarrolla un trabajo autoral como diseñador y carpintero, creando muebles diseñados y ejecutados íntegramente en su taller. En sus piezas busca el equilibrio entre lo geométrico y lo orgánico, entre la precisión del trazo y la fluidez del gesto.",
+    "pillarsp3": "Su trabajo ha integrado exposiciones en Brasil y en el extranjero, reafirmando una trayectoria basada en la experimentación, el rigor técnico y la valorización del tiempo de la creación. Hoy, Leon mantiene su propia línea de productos y también realiza proyectos a medida, creando piezas únicas que reflejan las necesidades y la atmósfera de cada ambiente.",
     "pillarsp4": "Actualmente, el diseñador tiene su propia línea de productos y también trabaja mediante encargos de piezas de línea o creando nuevas piezas según las necesidades de cada cliente.",
     "storeLink": "Tienda",
     "mentorshiph1": "Curso Libre / Mentoría",
     "mentorshipP": "Diseño de mobiliario + carpintería",
-    "mentorshipP2": "Los grupos están compuestos por hasta 4 personas.",
-    "mentorshipP3": "Aprendes desde el dibujo hasta la construcción de la pieza. Todo el proceso, desde el desarrollo del proyecto hasta la ejecución, aprendiendo durante y haciendo todos los muebles que quieras dentro del período.",
-    "mentorshipP4": "Contáctenos para consultar fechas y horarios disponibles.",
+    "mentorshipP2": "Los grupos están compuestos por hasta 4 personas",
+    "mentorshipP3": "Cada alumno desarrolla su propio proyecto y es acompañado en todas las etapas – desde el dibujo inicial hasta la ejecución final, pasando por técnicas, procesos y acabados. Los encuentros se realizan dos veces por semana, en grupos reducidos que favorecen la atención individual y el aprendizaje al ritmo de cada alumno y proyecto.",
+    "mentorshipSpan": "Contacta para consultar las fechas y horarios disponibles",
     "workshoph1": "Más fotos del taller",
-    "workshoph2": "¡Leon y su equipo cuentan con la presencia del empleado del mes, Tofu!"
+    "workshoph2": "¡Leon y su equipo cuentan con la presencia del empleado del mes Tofu!"
   },
   "StorePage": {
     "hero": "Productos."
@@ -73,5 +77,34 @@
     "CartButton1State1": "Procesando...",
     "CartButton1State2": "Finalizar compra",
     "CartButton2": "Continuar comprando"
+  },
+  "Showcase": {
+    "title": "Casa piaba",
+    "hero": {
+      "description": "Uno de los principales desafíos de la arquitectura contemporánea es madurar una sensibilidad capaz de descifrar el paisaje en el que se trabaja, ofreciendo en la construcción continuidad con las tradiciones culturales locales y la inventiva necesaria para acomodar nuevos modos de vida. En ese sentido, la Casa Piaba puede leerse como resultante de un proceso de arqueología cultural de la Chapada da Diamantina, así como propuesta de habitabilidad contemporánea de ese paisaje."
+    },
+    "info": {
+      "area": "Área:",
+      "year": "Año:"
+    },
+    "section1": {
+      "title": "Arquitectura de piedra: Sensibilidad Ambiental",
+      "text1": "La casa fue resultado de una investigación constructiva del estudio paulista Lajedo Arquitetura en asociación con el diseñador de muebles ",
+      "span": "Leon Ades",
+      "text2": ". La investigación de la materialidad de la madera y de los ensambles tradicionales fue el interés común que inspiró esta cooperación. La admiración por el hacer artesanal llevó a los arquitectos Alexandre Makhoul y Luiz Bomeny, así como al diseñador Leon Ades, a realizar la carpintería de la casa con sus propias manos, desde la prefabricación de la estructura hasta su montaje en el terreno de difícil acceso. Cuando se analiza con mayor atención, la construcción puede comprenderse como una lectura cuidadosa de los elementos que caracterizan el ambiente construido de la región.",
+      "text3": "Igatú, o \"agua buena\" en la lengua de los habitantes originarios Cariri y Maracá, tuvo su giro de urbanización a mediados del siglo XIX a partir del descubrimiento de yacimientos de diamantes en la región. La promesa de enriquecimiento en el interior de Bahía trajo un legado doble. Por un lado las consecuencias del extractivismo, con el asolamiento de los ríos y la devastación de los bosques nativos. El ciclo de riqueza de Igatú, como es típico de cualquier economía extractivista, se agotó. La mayor parte de la población se fue y hoy la ciudad es un pueblo con menos de mil habitantes. Por otro lado hubo el florecimiento de una cultura autóctona y la constitución de una noción regional de belleza, que a pesar del aire de abandono, continúa enraizada y viva a través de sus pocos habitantes."
+    },
+    "section2": {
+      "text1": "Entre los hitos culturales de esta región de la Chapada Diamantina están las soluciones encontradas para el ambiente construido y, en particular, para el diseño de residencias. El lugar posee amplia disponibilidad de piedras, que rápidamente fueron integradas a las construcciones. Rocas de gran porte fueron asociadas a muros, desempeñando el papel de coberturas y cerramientos. Rocas menores eran encajadas unas en otras para hacer paredes y, posteriormente, se garantizó la mayor estabilidad de estas estructuras con la introducción de la argamasa. A partir de esta práctica popular se desarrollaron tradiciones constructivas individuales, con diferentes trabajadores manuales locales creando técnicas de encaje propias. Las construcciones de la región hoy son firmadas silenciosamente por las líneas de encajes entre materiales y las resultantes texturas, oriundas del trabajo artesanal y del esmero de la población nativa.",
+      "text2": "El proyecto de la casa busca dar continuidad a las tradiciones constructivas locales, a la tipología de la arquitectura colonial bahiana y al paisaje de la Chapada da Diamantina. Teniendo como claro referencial la Casa de Caminha del arquitecto portugués Sérgio Fernandez, se incrusta en una pendiente, creando un espacio abierto de convivencia que difumina las fronteras entre interior y exterior. Cuando se descompone en sus elementos, la Casa Piaba desmonta la arquitectura colonial, reorganizando sus elementos en una nueva organización – adecuada al lugar y uso contemporáneo. Las pesadas paredes perimetrales de los edificios coloniales brasileños, con sus esbeltas aberturas rectangulares dispuestas de forma regular, aparecen aquí como la fachada de la casa – retomando también la típica frontalidad de los edificios coloniales que marcan las calles del Pelourinho o de Ouro Preto.",
+      "text3": "Sin embargo, el método constructivo adoptado en Igatú no es la tapia de pilón, sino el muro en piedra con las marcas de encajes aprendidas y maduradas a lo largo de generaciones de artesanos locales. El patio, elemento esencial de la arquitectura brasileña y mediterránea también es reinterpretado. Patios se diseminan en lugares calientes como una estrategia inteligente de integración con el clima local, permitiendo un acceso protegido de la luz solar y la ventilación del volumen edificado. (...)"
+    },
+    "video": {
+      "title": "Proceso de creación"
+    },
+    "readMore": {
+      "title": "¿Quieres saber más sobre este increíble proyecto?",
+      "cta": "haz clic en la silla"
+    }
   }
 }

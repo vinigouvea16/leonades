@@ -3,6 +3,9 @@
     "address": "Address",
     "contact": "Contact"
   },
+  "navbarfooter": {
+    "contact": "Contact"
+  },
   "home": {
     "subhero-h1": "About",
     "subhero-p": "For those seeking exclusive furniture, Leon Ades is ready to create a piece that combines unique design and top-of-the-line materials. Only he can deliver a design aligned with comfort and exquisite craftsmanship, ensuring your home is more beautiful and comfortable.",
@@ -10,16 +13,17 @@
     "contactLink": "Contact",
     "custom-made-h1": "Custom Made",
     "custom-made-p": "Projects developed with a focus on durability and careful material selection. The client's vision is translated into design excellence and finishing, resulting in custom-made pieces. For more details on personalized creations, please contact:",
-    "FAQQ1": "How does shipping work?",
-    "FAQA1": "Answer to question 1 EN",
-    "FAQQ2": "What is the delivery time?",
-    "FAQA2": "Answer to question 2 EN",
-    "FAQQ3": "Is the wood legally sourced?",
-    "FAQA3": "Answer to question 3 EN",
-    "FAQQ4": "Do you make custom projects?",
-    "FAQA4": "Answer to question 4 EN",
-    "FAQQ5": "Classes/Workshops?",
-    "FAQA5": "Answer to question 5 EN"
+    "FAQQ1": "Do you ship to other countries?",
+    "FAQA1": "Yes. Pieces can be shipped internationally, with packaging and transport suitable for each destination. Tracking is done in a personalized way, ensuring safety throughout the journey.",
+    "FAQQ2": "How long does it take to receive my order?",
+    "FAQA2": "Ready-to-ship pieces are dispatched as soon as possible. Custom-made projects can take up to 90 days, depending on complexity and the workshop's schedule. All pieces are produced manually, making each process unique and requiring the necessary time to ensure precision and quality.",
+    "FAQQ3": "Can I customize a piece?",
+    "FAQA3": "Yes. Custom-made work is part of the creative process. Dimensions, materials, and finishes can be adjusted to meet the needs of each space and project.",
+    "FAQQ4": "Do you offer classes or courses?",
+    "FAQA4": "Yes. The format is mentorship-based: each student brings their own project and is accompanied through all development stages — from initial drawing to final execution, covering techniques, processes, and finishes. Classes are small and held twice a week.",
+    "FAQA4Span": "[Click to see more]",
+    "FAQQ5": "Are the woods used certified?",
+    "FAQA5": "Yes. All woods are of controlled origin and come from suppliers who follow sustainable management practices. Respect for raw material is an essential part of the process."
   },
   "HomePageHero": {
     "h2": "Handcrafted pieces with meaning.",
@@ -29,28 +33,28 @@
     "home": "Home",
     "shop": "Shop",
     "about": "About",
-    "showcase": "Showcase",
+    "showcase": "Challenge",
     "contact": "Contact"
   },
   "about": {
-    "hero": "“As a designer, I believe that design has great social responsibility and should be thought of as an agent of habit transformation among people.”",
-    "aboutme": "About Me",
+    "hero": "“Every creation is born with the purpose of uniting aesthetic beauty, permanence, and presence in space.”",
+    "aboutme": "About",
     "shop": "Shop",
     "showcase": "Showcase",
     "contact": "Contact",
     "pillars": "Pillars",
-    "pillarsp1": "Leon Ades graduated in product design and found in woodworking a way to materialize his ideas, combining ancient techniques with contemporary designs.",
-    "pillarsp2": "He fell in love with woodworking in 2015. Since then, he has dedicated himself intensely to creating furniture that he designs and fully executes in his workshop using applied traditional woodworking techniques. In his designs, he seeks something that flirts with both the geometric and rational, as well as curves and organicity.",
-    "pillarsp3": "He creates pieces that combine aesthetic beauty with timelessness to last for generations.",
-    "pillarsp4": "Currently, the designer has his own line of products and also works on commissioned pieces from his line or by creating new pieces according to each client's needs.",
-    "storeLink": "Store",
-    "mentorshiph1": "Free Course / Mentorship",
-    "mentorshipP": "Furniture Design + Woodworking",
-    "mentorshipP2": "Classes consist of up to 4 people.",
-    "mentorshipP3": "You learn everything from drawing to building the piece. The entire process from project development to execution, learning during and making all the furniture you want within the period.",
-    "mentorshipP4": "Contact us to check available dates and times.",
+    "pillarsp1": "Leon Ades began his journey in 2015 at the Center for Fine Woodworking in New Zealand, where he discovered in woodworking a way to materialize ideas and explore the dialogue between hand, material, and form. Back in Brazil, he graduated in Product Design from IED-SP, consolidating his own language that combines traditional woodworking techniques with a contemporary perspective on design.",
+    "pillarsp2": "Since then, he has developed original work as a designer and carpenter, creating furniture designed and executed entirely in his workshop. In his pieces, he seeks a balance between the geometric and the organic – between the precision of the line and the fluidity of the gesture.",
+    "pillarsp3": "His work has been featured in exhibitions in Brazil and abroad, reaffirming a trajectory guided by experimentation, technical rigor, and an appreciation for the time involved in making. Today, Leon maintains his own product line and also carries out custom projects, creating unique pieces that reflect the needs and atmosphere of each environment.",
+    "pillarsp4": "Currently, the designer has his own product line and also works on commissioned pieces from the line or creates new pieces according to each client's needs.",
+    "storeLink": "Shop",
+    "mentorshiph1": "Open Course / Mentorship",
+    "mentorshipP": "Furniture design + woodworking",
+    "mentorshipP2": "Classes are composed of up to 4 people",
+    "mentorshipP3": "Each student develops their own project and is accompanied through all stages – from initial drawing to final execution, covering techniques, processes, and finishes. Meetings take place twice a week, in small groups that foster individual attention and learning at the pace of each student and project.",
+    "mentorshipSpan": "Contact us to check available dates and times",
     "workshoph1": "More workshop photos",
-    "workshoph2": "Leon and his team are joined by the employee of the month, Tofu!"
+    "workshoph2": "Leon and his team are joined by employee of the month, Tofu!"
   },
   "StorePage": {
     "hero": "Products."
@@ -73,5 +77,34 @@
     "CartButton1State1": "Processing...",
     "CartButton1State2": "Checkout",
     "CartButton2": "Continue shopping"
+  },
+  "Showcase": {
+    "title": "Casa Piaba",
+    "hero": {
+      "description": "One of contemporary architecture's most pressing challenges is the maturement of a sensibility capable of deciphering the landscape on a local level, offering construction continuity with local traditions as well as the creativity necessary for accommodating new lifestyles. In that sense, Piaba House can be read as a result of a process of cultural archeology in the Chapada da Diamantina and a proposal of contemporary habitability in this landscape."
+    },
+    "info": {
+      "area": "Area:",
+      "year": "Year:"
+    },
+    "section1": {
+      "title": "Stone Architecture: environmental sensitivity",
+      "text1": "The house resulted from a constructive investigation by Lajedo Arquitetura, an office from São Paulo, in partnership with the furniture designer ",
+      "span": "Leon Ades",
+      "text2": ". The research on the materiality of wood and traditional joinery techniques was the common interest that inspired this cooperation. The admiration for artisanal modes of fabrication led the architects Alexandre Makhoul and Luiz Bomeny, as well as Leon Ades, to make the carpentry with their own hands, from the pre-fabrication of the structure until its assembly in the site, which is of difficult access. When studied with greater attention, the construction can be understood as a careful reading of the elements that characterize the built environment of the region.",
+      "text3": "Igatú, or \"good water\" in the language of indigenous populations Cariri and Maracá, went through an intense urbanization process in the second half of the XIXth century due to the discovery of diamonds in the region. The promise of enrichment in the countryside of Bahia brought an ambivalent legacy. On one side the consequences of extractivism and the mining industry, such as the silting of rivers and the destruction of native forests. Igatú's wealth cycle, just like any other extractivist economy, exhausted itself. Most of its population left the city and today it is a small village with a population of less than one thousand. On the other side, an autochthonous culture flourished and the constitution of a regional notion of beauty, that despite its abandonment, remains rooted and alive through its few inhabitants."
+    },
+    "section2": {
+      "text1": "Among the cultural landmarks of this region of the Chapada Diamantina are the solutions found for the built environment and, in particular, for the design of homes. The site has a wide availability of stones, which were quickly integrated into the buildings. Large stones were incorporated into walls, playing the role of coverings and enclosures. Smaller rocks were fitted together to make walls and, later on, mortar was used to ensure greater stability in these structures. From this popular practice, individual building traditions developed, with different local craftsmen creating their own fitting techniques. Today, the region's buildings are silently marked by the lines of fittings between materials and the resulting textures, originating from the craftsmanship and care of the native population.",
+      "text2": "The house design seeks continuity with local construction traditions, such as traditional typologies found in Bahia's colonial architecture and the landscape of the Chapada da Diamantina. Having as a central reference the Casa de Caminha from Portuguese architect Sérgio Fernandez, the design encrusts itself in a slope, creating an open space of acquaintanceship that blurs the frontiers between interior and exterior. When decomposed in its elements, Piaba house deconstructs colonial architecture, rearranging its elements in a new organization – adequate to the place and contemporary uses. The heavy perimetral walls of colonial Brazilian buildings, with their thin rectangular apertures disposed in regular intervals, appear here as the façade of the house – also referencing the typical frontality of colonial architecture that characterize the streets of the Pelourinho and Ouro Preto.",
+      "text3": "However, the construction method adopted in Igatú is not rammed earth, but stone walls with the marks of fittings learned and matured over generations of local craftsmen. The patio, an essential element of Brazilian and Mediterranean architecture is also reinterpreted. Patios are disseminated in hot places as an intelligent strategy for integrating with the local climate, allowing protected access from sunlight and ventilation of the built volume. (...)"
+    },
+    "video": {
+      "title": "Creation process"
+    },
+    "readMore": {
+      "title": "Want to know more about this amazing project?",
+      "cta": "click on the chair"
+    }
   }
 }

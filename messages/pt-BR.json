@@ -3,52 +3,56 @@
     "address": "Endereço",
     "contact": "Contato"
   },
+  "navbarfooter": {
+    "contact": "Contato"
+  },
   "home": {
     "subhero-h1": "Autoral",
-    "subhero-p": "Para quem busca móveis exclusivos, Leon Ades está pronto para criar a peça que une um design singular e materiais de primeira linha. Isso porque somente ele consegue entregar um design alinhado ao conforto e à execução primorosa, garantindo que você tenha um lar mais bonito e confortável.",
+    "subhero-p": "Móveis autorais que equilibram forma, conforto e matéria - criados para atravessar o tempo e habitar os espaços com leveza e presença.",
     "highlights-h1": "Destaques",
     "contactLink": "contato",
     "custom-made-h1": "Sob Medida",
     "custom-made-p": "Projetos elaborados com foco na durabilidade e na escolha criteriosa de materiais. A visão do cliente é traduzida em excelência de design e acabamento, resultando em peças sob medida. Para mais detalhes sobre criações personalizadas, entre em contato:",
-    "FAQQ1": "Como funciona o frete?",
-    "FAQA1": "resposta pergunta 1 PT-br",
-    "FAQQ2": "Qual o prazo de entrega?",
-    "FAQA2": "Resposta pergunta 2 pt-br",
-    "FAQQ3": "São madeiras legais?",
-    "FAQA3": "Resposta pergunta 3 pt-br",
-    "FAQQ4": "Você faz projetos sob medida?",
-    "FAQA4": "Resposta pergunta 4 pt-br",
-    "FAQQ5": "Aulas/Oficinas?",
-    "FAQA5": "Resposta pergunta 5 pt-br"
+    "FAQQ1": "Vocês enviam para outros países?",
+    "FAQA1": "Sim. As peças podem ser enviadas internacionalmente, com embalagem e transporte adequados a cada destino. O acompanhamento é feito de forma personalizada, garantindo segurança em todo o trajeto.",
+    "FAQQ2": "Quanto tempo leva para eu receber meu pedido?",
+    "FAQA2": "Peças à pronta entrega são despachadas o quanto antes. Projetos sob medida podem levar até 90 dias, dependendo da complexidade e da agenda na marcenaria. Todas as peças são produzidas manualmente, o que torna cada processo único e exige o tempo necessário para garantir precisão e qualidade.",
+    "FAQQ3": "Posso personalizar uma peça?",
+    "FAQA3": "Sim. O trabalho sob medida faz parte do processo criativo. Dimensões, materiais e acabamentos podem ser ajustados para atender às necessidades de cada espaço e projeto.",
+    "FAQQ4": "Voce dá aulas ou cursos?",
+    "FAQA4": "Sim. O formato é de mentoria: cada aluno leva seu próprio projeto e é acompanhado em todas as etapas de desenvolvimento — do desenho inicial à execução final, passando por técnicas, processos e acabamentos. As turmas são pequenas e acontecem duas vezes por semana.",
+    "FAQA4Span": "[Clique para ver mais]",
+    "FAQQ5": "As madeiras utilizadas são certificada?",
+    "FAQA5": "Sim. Todas as madeiras são de origem controlada e provenientes de fornecedores que seguem práticas de manejo sustentável. O respeito à matéria-prima é parte essencial do processo."
   },
   "HomePageHero": {
-    "h2": "Peças artesanais com significado.",
-    "h3": "O designer que cria desenhos singulares unindo criatividade, conforto e qualidade técnica, em móveis de madeira."
+    "h2": "Técnicas milenares / desenhos contemporâneos",
+    "h3": "Unindo o saber artesanal à linguagem do design contemporâneo , o estúdio desenvolve móveis que conciliam tradição, precisão e liberdade criativa."
   },
   "Navbar": {
     "home": "Início",
     "shop": "Loja",
     "about": "Sobre",
-    "showcase": "Vitrine",
+    "showcase": "Desafio",
     "contact": "Contato"
   },
   "about": {
-    "hero": "“Como designer, eu acredito que o design tem grande responsabilidade social e deve ser pensado como agente transformador de hábito entre as pessoas.”",
+    "hero": "“Cada criação nasce com o propósito de unir beleza estética, permanência e presença no espaço.”",
     "aboutme": "Sobre",
     "shop": "Loja",
     "showcase": "Vitrine",
     "contact": "Contato",
     "pillars": "Pilares",
-    "pillarsp1": "Leon Ades é formado em design de produto e encontrou na marcenaria uma maneira de materializar suas ideias, unindo técnicas milenares com desenhos contemporâneos.",
-    "pillarsp2": "Apaixonou-se por marcenaria em 2015. Desde então se dedica intensamente à criação de móveis que desenha e executa inteiramente em sua oficina utilizando técnicas tradicionais de marcenaria aplicadas. Em seus desenhos busca algo que flerte tanto com o geométrico e racional quanto com as curvas e a organicidade.",
-    "pillarsp3": "Cria peças que unem beleza estética com atemporalidade para durarem gerações",
+    "pillarsp1": "Leon Ades iniciou sua trajetória em 2015 no Center for Fine Woodworking, na Nova Zelândia, onde descobriu na marcenaria uma maneira de materializar ideias e explorar o dialogo entre mão, matéria e forma. De volta ao Brasil, formou-se em Design de Produto pelo IED-SP, consolidando uma linguagem própria que une técnicas tradicionais de marcenaria a um olhar contemporâneo sobre o design.",
+    "pillarsp2": "Desde então, desenvolve um trabalho autoral como designer e marceneiro, criando móveis desenhados e executados inteiramente em sua oficina. Em suas peças busca o equilíbrio entre o geométrico e o orgânico - entre a precisão do traço  e a fluidez do gesto.",
+    "pillarsp3": "Seu trabalho já integrou exposições no Brasil e no exterior, reafirmando uma trajetória pautada pela experimentação, pelo rigor técnico e pela valorização do tempo do fazer. Hoje, Leon mantém uma linha própria de produtos e também realiza projetos sob medida, criando peças únicas que refletem as necessidades e a atmosfera de cada ambiente",
     "pillarsp4": "Atualmente o designer tem uma linha própria de produtos e trabalha, também, por meio de encomendas de peças de linha ou criando novas peças de acordo com as necessidades de cada cliente.",
     "storeLink": "Loja",
     "mentorshiph1": "Curso Livre / Mentoria",
     "mentorshipP": "Design de mobiliário + marcenaria",
     "mentorshipP2": "As turmas são compostas de até 4 pessoas",
-    "mentorshipP3": "Você aprende desde o desenho até a construção da peça. Todo o processo o desenvolvimento do projeto até a execução, aprendendo durante e fazendo todos os móveis que você quiser dentro do período.",
-    "mentorshipP4": "Entre em contato para conferir as datas e horários disponíveis",
+    "mentorshipP3": "Cada aluno desenvolve seu próprio projeto e é acompanhado em todas as etapas - do desenho inicial à execução final, passando por técnicas, processos e acabamentos. Os encontros acontecem duas vezes por semana, em grupos reduzidos que favorecem a atenção individual e o aprendizado  no ritmo de cada aluno e projeto.",
+    "mentorshipSpan": "Entre em contato para conferir as datas e  horários disponíveis",
     "workshoph1": "Mais fotos da oficina",
     "workshoph2": "Leon e sua equipe contam com a presença do funcionário do mês Tofu!"
   },
@@ -73,5 +77,34 @@
     "CartButton1State1": "Processando...",
     "CartButton1State2": "Finalizar Compra",
     "CartButton2": "Continuar comprando"
+  },
+  "Showcase": {
+    "title": "Casa piaba",
+    "hero": {
+      "description": "Um dos principais desafios da arquitetura contemporânea é amadurecer uma sensibilidade capaz de decifrar a paisagem em que se trabalha, oferecendo na construção continuidade com as tradições culturais locais e a inventividade necessária para acomodar novos modos de vida. Nesse sentido, a Casa Piaba pode ser lida como resultante de um processo de arqueologia cultural da Chapada da Diamantina, assim como proposta de habitabilidade contemporânea dessa paisagem."
+    },
+    "info": {
+      "area": "Área:",
+      "year": "Ano:"
+    },
+    "section1": {
+      "title": "Arquitetura de pedra: Sensibilidade Ambiental",
+      "text1": "A casa foi resultado de uma investigação construtiva do escritório paulistano Lajedo Arquitetura em parceria com o designer de móveis ",
+      "span": "Leon Ades",
+      "text2": ". A casa foi resultado de uma investigação construtiva do escritório paulistano Lajedo Arquitetura em parceria com o designer de móveis. A pesquisa da materialidade da madeira e dos encaixes tradicionais foi o interesse em comum que inspirou essa cooperação. A admiração pelo fazer artesanal levou os arquitetos Alexandre Makhoul e Luiz Bomeny, assim como o designer Leon Ades, a realizar a carpintaria da casa com as próprias mãos, desde a pré-fabricação da estrutura até sua montagem no terreno de difícil acesso. Quando analisada com maior atenção a construção pode ser compreendida como uma leitura cuidadosa dos elementos que caracterizam o ambiente construído da região.",
+      "text3": "Igatú, ou \"água boa\" na língua dos habitantes originários Cariri e Maracá, teve sua guinada de urbanização na metade do século XIX a partir da descoberta de jazidas de diamantes na região. A promessa de enriquecimento no interior da Bahia trouxe um legado duplo. De um lado as consequências do extrativismo, com o assoreamento dos rios e a devastação das matas nativas. O ciclo de riqueza de Igatú, como é típico de qualquer economia extrativista, exauriu-se. A maior parte da população foi embora e hoje a cidade é um vilarejo com menos de mil habitantes. Do outro lado houve o florescimento de uma cultura autóctone e a constituição de uma noção regional de beleza, que apesar do ar de abandono, continua enraizada e viva através de seus poucos moradores."
+    },
+    "section2": {
+      "text1": "Dentre os marcos culturais dessa região da Chapada Diamantina estão as soluções encontradas para o ambiente construído e, em particular, para o desenho de residências. O local possui ampla disponibilidade de pedras, que rapidamente foram integradas às construções. Rochas de grande porte foram associadas à muros, desempenhando o papel de coberturas e vedações. Rochas menores eram encaixadas umas nas outras para se fazer paredes e, posteriormente, garantiu-se a maior estabilidade dessas estruturas com a introdução da argamassa. A partir dessa prática popular desenvolveu-se tradições construtivas individuais, com diferentes trabalhadores manuais locais criando técnicas de encaixe próprios. As construções da região hoje são assinadas silenciosamente pelas linhas de encaixes entre materiais e as resultantes texturas, oriundas do trabalho artesanal e do esmero da população nativa.",
+      "text2": "O projeto da casa procura dar continuidade às tradições construtivas locais, à tipologia da arquitetura colonial baiana e à paisagem da Chapada da Diamantina. Tendo como claro referencial a Casa de Caminha do arquiteto português Sérgio Fernandez, ela se encrusta em um declive, criando um espaço aberto de convivência que esmaece as fronteiras entre interior e exterior. Quando decomposta em seus elementos, a Casa Piaba desmonta a arquitetura colonial, rearranjando seus elementos em uma nova organização – adequada ao local e uso contemporâneo. As pesadas paredes perimetrais dos edifícios coloniais brasileiros, com suas esguias aberturas retangulares dispostas de forma regular, aparecem aqui como a fachada da casa – retomando também a típica frontalidade dos edifícios coloniais que marcam as ruas do Pelourinho ou de Ouro Preto.",
+      "text3": "Entretanto, o método construtivo adotado em Igatú não é a taipa de pilão, mas o muro em pedra com as marcas de encaixes aprendidas e maturadas a longo de gerações de artesões locais. O pátio, elemento essencial da arquitetura brasileira e mediterrânea também é reinterpretado. Pátios se disseminam em locais quentes como uma estratégia inteligente de integração com o clima local, permitindo um acesso protegido da luz solar e a ventilação do volume edificado. (...)"
+    },
+    "video": {
+      "title": "Processo de criação"
+    },
+    "readMore": {
+      "title": "Quer saber mais sobre esse projeto incrível?",
+      "cta": "clique na cadeira"
+    }
   }
 }
