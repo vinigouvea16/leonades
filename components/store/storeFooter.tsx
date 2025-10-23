@@ -7,8 +7,8 @@ export default function StoreFooter() {
   const t = useTranslations('footer')
   return (
     <div className="mx-3 flex flex-col lg:mx-12">
-      <div className="mb-8 flex flex-col justify-between gap-5 space-y-0 lg:flex-row">
-        <div className="relative lg:w-2/3">
+      <div className="flex flex-col justify-between gap-5 space-y-0 lg:flex-row">
+        <div className="relative lg:w-1/3">
           <Image
             src={'/logoNomePreto.png'}
             alt=""
@@ -29,16 +29,14 @@ export default function StoreFooter() {
         {/* contact info */}
         <div className=" flex w-full flex-col justify-between space-y-4 font-light lg:mx-0 lg:w-1/3 lg:flex-row">
           <div className="flex flex-col space-y-4 text-center lg:text-start">
-            <p className="text-xl lg:text-2xl">{t('address')}</p>
-            <p className="text-sm lg:text-sm">
-              Rua Mourato Coelho, 723 - Pinheiros
-            </p>
-            <p className="text-sm lg:text-sm">São Paulo, São Paulo. 12430456</p>
+            <p className="text-xl">{t('address')}</p>
+            <p className="text-sm ">Rua Mourato Coelho, 723 - Pinheiros</p>
+            <p className="text-sm ">São Paulo, São Paulo. 12430456</p>
           </div>
           <div className="flex flex-col space-y-4 text-center lg:text-start">
-            <p className="text-xl lg:text-2xl">{t('contact')}</p>
-            <p className="text-sm lg:text-sm">Instagram</p>
-            <p className="text-sm lg:text-sm">Twitter</p>
+            <p className="text-xl">{t('contact')}</p>
+            <p className="text-sm ">Instagram</p>
+            <p className="text-sm ">Twitter</p>
           </div>
         </div>
       </div>
@@ -46,9 +44,14 @@ export default function StoreFooter() {
       {/* line */}
       <div className="hidden h-[1px] w-full bg-leon-black/25 lg:block" />
       {/* sign */}
-      <div className="my-6 flex flex-col justify-between space-y-2 text-center text-base font-light lg:flex-row lg:text-start">
-        <p className="uppercase">2025. alrights reserved</p>
-        <a href="https://tailvinicss.dev">made by tailvinicss</a>
+      <div className="my-3 flex flex-col justify-between space-y-2 text-center text-sm font-light lg:flex-row lg:text-start">
+        <p className="uppercase text-xs">2025. all rights reserved</p>
+        <a
+          href="https://tailvinicss.dev"
+          aria-label="Want to know more about the developer? Check Tailvinicss' portfolio"
+        >
+          made by tailvinicss
+        </a>
       </div>
     </div>
   )

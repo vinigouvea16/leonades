@@ -14,7 +14,7 @@ export default function AboutPage({
   setRequestLocale(locale)
 
   return (
-    <div className="bg-leon-new-sand flex flex-col lg:gap-12 gap-6 " id="hero">
+    <div className="bg-leon-new-sand flex flex-col gap-6 " id="hero">
       <Hero />
       <SubHero />
       <Pillars />

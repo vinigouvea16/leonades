@@ -20,7 +20,7 @@ function ExpandableSection({
     : contentArray.slice(0, maxParagraphs)
 
   return (
-    <div className="flex flex-col mx-3 font-light text-leon-black space-y-4 mt-4">
+    <div className="flex flex-col mx-3 lg:mx-0 font-light text-leon-black space-y-4 mt-4">
       {displayedContent}
       {shouldShowButton && (
         <button

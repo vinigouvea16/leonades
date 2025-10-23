@@ -31,9 +31,9 @@ export default function Loader() {
     >
       <div
         className="relative w-full h-full bg-cover bg-center"
-        style={{ backgroundImage: "url('/loaderwebp.webp')" }}
+        style={{ backgroundImage: "url('/loader3webp.webp')" }}
       >
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-black/5" />
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <div className="relative h-[650px] w-[322px] flex items-center justify-center">
             <svg

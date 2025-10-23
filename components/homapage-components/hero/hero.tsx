@@ -52,12 +52,8 @@ export default function Hero() {
             transition={{ duration: 0.5, ease: 'easeOut', delay: 1.2 }}
             className="text-left hidden lg:flex lg:flex-col space-y-8 z-20 max-w-[650px]"
           >
-            <h2 className="text-white text-4xl lg:text-3xl font-light">
-              {t('h2')}
-            </h2>
-            <h3 className="text-white text-2xl lg:text-xl font-light">
-              {t('h3')}
-            </h3>
+            <h2 className="text-white lg:text-2xl font-light">{t('h2')}</h2>
+            <h3 className="text-white lg:text-lg font-light">{t('h3')}</h3>
           </motion.div>
         </div>
       </div>

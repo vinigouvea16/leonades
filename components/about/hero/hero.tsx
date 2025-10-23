@@ -6,12 +6,12 @@ import React from 'react'
 
 export default function Hero() {
   return (
-    <div className="h-screen flex flex-col lg:mx-5 mx-3">
+    <div className="lg:h-[45vh] h-[25vh] flex flex-col lg:mx-5 mx-3">
       <div className="flex flex-col space-y-4 font-light flex-grow">
-        <div className="w-full flex justify-evenly h-4/5 lg:hidden">
+        {/* <div className="w-[300px] mx-auto flex justify-evenly h-4/5 lg:hidden">
           <motion.div
             initial={{ height: 0 }}
-            animate={{ height: '100%' }}
+            animate={{ height: '80%' }}
             transition={{
               duration: 0.8,
               ease: 'easeOut',
@@ -21,7 +21,7 @@ export default function Hero() {
           />
           <motion.div
             initial={{ height: 0 }}
-            animate={{ height: '80%' }}
+            animate={{ height: '100%' }}
             transition={{
               duration: 1,
               ease: 'easeOut',
@@ -31,7 +31,7 @@ export default function Hero() {
           />
           <motion.div
             initial={{ height: 0 }}
-            animate={{ height: '100%' }}
+            animate={{ height: '80%' }}
             transition={{
               duration: 0.8,
               ease: 'easeOut',
@@ -39,7 +39,7 @@ export default function Hero() {
             }}
             className="w-[1px] bg-leon-black/25"
           />
-        </div>
+        </div> */}
         <Image
           alt=""
           width={1800}

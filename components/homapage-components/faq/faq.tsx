@@ -7,13 +7,14 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { useTranslations } from 'next-intl'
+import Link from 'next/link'
 
 export default function FAQ() {
   const t = useTranslations('home')
   return (
     <div className="flex lg:flex-row flex-col lg:items-start lg:mx-5 mx-3 space-y-4 lg:mt-20">
       <div className="flex lg:w-1/3 mx-auto">
-        <h1 className="font-light text-4xl">FAQ</h1>
+        <h1 className="font-light text-3xl">FAQ</h1>
       </div>
       <Accordion
         type="single"
@@ -42,7 +43,15 @@ export default function FAQ() {
         <AccordionItem value="item-4">
           <AccordionTrigger>{t('FAQQ4')}</AccordionTrigger>
           <AccordionContent>
-            <p>{t('FAQA4')}</p>
+            <p>
+              {t('FAQA4')}{' '}
+              <Link
+                href="/about#mentorship"
+                className="underline underline-offset-2"
+              >
+                {t('FAQA4Span')}
+              </Link>
+            </p>
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-5">

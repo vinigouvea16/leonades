@@ -7,14 +7,14 @@ export default function Footer() {
   const t = useTranslations('footer')
   return (
     <div className="mx-3 flex flex-col lg:mx-5">
-      <div className="mb-8 flex flex-col justify-between gap-5 space-y-0 lg:flex-row">
-        <div className="relative lg:w-2/3">
+      <div className=" flex flex-col justify-between gap-5 space-y-0 lg:flex-row">
+        <div className="relative lg:w-1/3 ">
           <Image
             src={'/logoNomePreto.png'}
             alt=""
             width={893}
             height={127}
-            className="mx-auto h-fit w-fit object-cover opacity-15 lg:mx-0 lg:opacity-25"
+            className="mx-auto h-fit w-fit object-cover opacity-15 lg:mx-0 lg:opacity-35"
           />
 
           <a
@@ -29,18 +29,18 @@ export default function Footer() {
         {/* contact info */}
         <div className="mx-auto flex w-full flex-col justify-between space-y-4 font-light lg:mx-0 lg:w-1/3 lg:flex-row">
           <div className="flex flex-col space-y-4 text-center lg:text-start">
-            <p className="text-xl lg:text-2xl">{t('address')}</p>
-            <p className="text-sm lg:text-base">
-              Rua Mourato Coelho, 723 - Pinheiros
-            </p>
-            <p className="text-sm lg:text-base">
-              São Paulo, São Paulo. 12430456
-            </p>
+            <p className="text-xl">{t('address')}</p>
+            <p className="text-sm ">Rua Mourato Coelho, 723 - Pinheiros</p>
+            <p className="text-sm ">São Paulo, São Paulo. 12430456</p>
           </div>
           <div className="flex flex-col space-y-4 text-center lg:text-start">
-            <p className="text-xl lg:text-2xl">{t('contact')}</p>
-            <p className="text-sm lg:text-base">Instagram</p>
-            <p className="text-sm lg:text-base">Twitter</p>
+            <p className="text-xl">{t('contact')}</p>
+            <a href="https://www.instagram.com/leon.ades/" className="text-sm ">
+              Instagram
+            </a>
+            <a href="mailto:contato@leonades.com" className="text-sm ">
+              E-mail
+            </a>
           </div>
         </div>
       </div>
@@ -48,8 +48,8 @@ export default function Footer() {
       {/* line */}
       <div className="hidden h-[1px] w-full bg-leon-black/25 lg:block" />
       {/* sign */}
-      <div className="my-6 flex flex-col justify-between space-y-2 text-center text-base font-light lg:flex-row lg:text-start">
-        <p className="uppercase">2025. alrights reserved</p>
+      <div className="my-3 flex flex-col justify-between space-y-2 text-center text-sm font-light lg:flex-row lg:text-start">
+        <p className="uppercase text-xs">2025. all rights reserved</p>
         <a
           href="https://tailvinicss.dev"
           aria-label="Want to know more about the developer? Check Tailvinicss' portfolio"

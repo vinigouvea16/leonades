@@ -1,4 +1,3 @@
-import CustomFurniture from '@/components/store/custom'
 import StoreHero from '@/components/store/hero'
 import StoreFooter from '@/components/store/storeFooter'
 import StoreSection from '@/components/store/storeSection'
@@ -18,7 +17,6 @@ export default function StorePage({
     >
       <StoreHero />
       <StoreSection />
-      <CustomFurniture />
       <StoreFooter />
     </div>
   )
