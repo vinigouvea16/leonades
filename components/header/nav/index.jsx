@@ -12,7 +12,6 @@ const rawLinks = [
   { key: 'shop', href: '/store', src: 'nav/shop.jpg' },
   { key: 'about', href: '/about', src: 'nav/about.jpg' },
   { key: 'showcase', href: '/showcase', src: 'nav/showcase.jpg' },
-  { key: 'contact', href: '/contact', src: 'nav/contact.jpg' },
 ]
 
 export default function Index({ closeMenu }) {
@@ -35,7 +34,7 @@ export default function Index({ closeMenu }) {
       exit="exit"
       className="overflow-hidden "
     >
-      <div className="flex gap-12 mb-20 lg:mb-0 lg:justify-between">
+      <div className="flex gap-12 mb-4 lg:mb-0 lg:justify-between">
         <div className="flex flex-col justify-between">
           <Body
             links={links}
