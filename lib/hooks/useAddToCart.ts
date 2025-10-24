@@ -13,6 +13,10 @@ type AddToCartParams = {
   }
   quantity?: number
   maxQuantity?: number
+  selectedOptions?: Array<{
+    name: string
+    value: string
+  }>
 }
 
 export function useAddToCart() {
@@ -33,6 +37,7 @@ export function useAddToCart() {
         price: product.price,
         quantity: product.quantity || 1,
         maxQuantity: product.maxQuantity,
+        selectedOptions: product.selectedOptions || [],
       }
 
       addItem(cartItem)

@@ -198,7 +198,7 @@ function StoreGrid({
           key={product.id}
           onMouseEnter={() => handleMouseEnter(product)}
           onClick={() => handleProductClick(product)}
-          className="relative flex items-center justify-center border-1 lg:pt-4 border-[#333]/5 lg:border-0 lg:h-[400px] cursor-pointer transition-all duration-300 rounded-bl-sm rounded-tr-sm hover:shadow-sm lg:max-h-[286px] h-[290px]"
+          className="relative flex items-center justify-center border-1 lg:pt-4 border-[#333]/5 lg:border-0 lg:h-[400px] cursor-pointer transition-all duration-300 rounded-bl-sm rounded-tr-sm hover:shadow-sm lg:max-h-[286px] xl:max-h-[320px] h-[290px]"
         >
           <Image
             src={product.img}

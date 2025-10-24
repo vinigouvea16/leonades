@@ -21,6 +21,10 @@ export type CartItem = {
   }
   quantity: number
   maxQuantity?: number
+  selectedOptions?: Array<{
+    name: string
+    value: string
+  }>
 }
 
 type CartState = {

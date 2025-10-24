@@ -9,24 +9,36 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { useRouter } from '@/i18n/navigation'
 import { useAddToCart } from '@/lib/hooks/useAddToCart'
 import { type ProductVariant, useProduct } from '@/lib/hooks/useProduct'
+import { useProductOptionTranslation } from '@/lib/hooks/useProductOptionTranslation'
 import { motion } from 'framer-motion'
 import { ChevronsDown, Undo } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
 interface ProductPageProps {
   handle: string
 }
 
+interface SelectedOptions {
+  [key: string]: string
+}
+
 export default function ProductPage({ handle }: ProductPageProps) {
   const t = useTranslations('Product')
   const { product, loading, error } = useProduct(handle)
-  
+
   const [showScrollIndicator, setShowScrollIndicator] = useState(false)
   const router = useRouter()
 
@@ -35,12 +47,47 @@ export default function ProductPage({ handle }: ProductPageProps) {
   const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(
     null
   )
+  const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({})
+  const { translateOptionName, translateOptionValue } =
+    useProductOptionTranslation()
 
   useEffect(() => {
     if (product?.variants && product.variants.length > 0) {
-      setSelectedVariant(product.variants[0])
+      const firstVariant = product.variants[0]
+      setSelectedVariant(firstVariant)
+
+      const initialOptions: SelectedOptions = {}
+      if (firstVariant.selectedOptions) {
+        for (const option of firstVariant.selectedOptions) {
+          initialOptions[option.name] = option.value
+        }
+      }
+      setSelectedOptions(initialOptions)
     }
   }, [product])
+
+  useEffect(() => {
+    if (!product?.variants) return
+
+    const variant = product.variants.find(v => {
+      return v.selectedOptions?.every(
+        (option: { name: string | number; value: string }) => {
+          return selectedOptions[option.name] === option.value
+        }
+      )
+    })
+
+    if (variant) {
+      setSelectedVariant(variant)
+    }
+  }, [selectedOptions, product])
+
+  const handleOptionChange = (optionName: string, value: string) => {
+    setSelectedOptions(prev => ({
+      ...prev,
+      [optionName]: value,
+    }))
+  }
 
   const handleAddToCart = async () => {
     if (!selectedVariant || !product) return
@@ -61,6 +108,7 @@ export default function ProductPage({ handle }: ProductPageProps) {
           },
           quantity: 1,
           maxQuantity: undefined,
+          selectedOptions: selectedVariant.selectedOptions,
         },
         {
           openCart: true,
@@ -79,11 +127,7 @@ export default function ProductPage({ handle }: ProductPageProps) {
   }
 
   const handleBack = () => {
-    if (typeof window !== 'undefined' && window.history.length > 1) {
-      router.back()
-    } else {
-      router.push('/store')
-    }
+    router.push('/store')
   }
 
   useEffect(() => {
@@ -104,6 +148,32 @@ export default function ProductPage({ handle }: ProductPageProps) {
       .replace('R$', '')
       .trim()
   }
+
+  const productOptions = useMemo(() => {
+    if (!product?.options) return []
+
+    return product.options.map(
+      (option: { name: string; values: string[] }) => ({
+        name: option.name,
+        values: option.values,
+      })
+    )
+  }, [product])
+
+  const availabilityStatus = useMemo(() => {
+    if (!selectedVariant) return 'Indisponível'
+
+    if (!selectedVariant.availableForSale) return 'Indisponível'
+
+    if (
+      typeof selectedVariant.quantityAvailable === 'number' &&
+      selectedVariant.quantityAvailable > 0
+    ) {
+      return 'Disponível'
+    }
+
+    return 'Sob Encomenda'
+  }, [selectedVariant])
 
   if (loading) {
     return (
@@ -173,16 +243,21 @@ export default function ProductPage({ handle }: ProductPageProps) {
   const productTitle = product.name || 'Produto sem título'
   const productYear = product.year || '—'
 
-  const price =
-    product.priceRange.min.amount === product.priceRange.max.amount
-      ? formatPrice(
-          product.priceRange.min.amount,
-          product.priceRange.min.currencyCode
-        )
-      : `${formatPrice(product.priceRange.min.amount, product.priceRange.min.currencyCode)} - ${formatPrice(product.priceRange.max.amount, product.priceRange.max.currencyCode)}`
+  const currentPrice = selectedVariant
+    ? formatPrice(
+        selectedVariant.price.amount,
+        selectedVariant.price.currencyCode
+      )
+    : formatPrice(
+        product.priceRange.min.amount,
+        product.priceRange.min.currencyCode
+      )
 
   return (
-    <div className="flex flex-col bg-leon-new-sand overflow-x-hidden" id="hero">
+    <div
+      className="flex flex-col  bg-leon-new-sand overflow-x-hidden"
+      id="hero"
+    >
       {showScrollIndicator && (
         <motion.div
           initial={{ opacity: 0, y: -10 }}
@@ -197,13 +272,11 @@ export default function ProductPage({ handle }: ProductPageProps) {
             }}
             transition={{
               duration: 1.5,
-              // biome-ignore lint/style/useNumberNamespace: <explanation>
-              repeat: Infinity,
+              repeat: Number.POSITIVE_INFINITY,
               ease: 'easeInOut',
             }}
             className="flex flex-col items-center text-leon-black/75"
           >
-            {/* <p className="text-sm font-light mb-2">Role para ver mais</p> */}
             <ChevronsDown className="w-8 h-8" />
           </motion.div>
         </motion.div>
@@ -223,42 +296,101 @@ export default function ProductPage({ handle }: ProductPageProps) {
             alt={mainImage.altText || productTitle}
             className="lg:w-2/3 h-full object-center object-contain max-h-[750px]"
           />
-          <div className="flex flex-col lg:w-1/3 items-center lg:gap-12 gap-5">
-            <div className="flex gap-2 font-light text-nowrap">
+          <div className="flex flex-col mx-auto gap-0 px-4">
+            {/* product info */}
+            <div className="flex gap-2 font-light text-nowrap lg:w-full">
               <div className="flex flex-col items-end lg:text-xl">
-                <p className="text-leon-concrete">{t('product')}</p>
-                <p className="text-leon-concrete">{t('year')}</p>
-                <p className="text-leon-concrete">{t('status')}</p>
+                <p className="text-leon-concrete lg:text-xl lg:w-[120px] w-[80px] text-right flex-shrink-0">
+                  {t('product')}
+                </p>
+                <p className="text-leon-concrete lg:text-xl lg:w-[120px] w-[80px] text-right flex-shrink-0">
+                  {t('year')}
+                </p>
+                <p className="text-leon-concrete lg:text-xl lg:w-[120px] w-[80px] text-right flex-shrink-0">
+                  {t('status')}
+                </p>
                 {product.tags?.length > 0 && (
-                  <p className="text-leon-concrete">{t('category')}</p>
+                  <p className="text-leon-concrete lg:text-xl lg:w-[120px] w-[80px] text-right flex-shrink-0">
+                    {t('category')}
+                  </p>
                 )}
-                <p className="text-leon-concrete">{t('price')}</p>
               </div>
 
               <div className="flex flex-col items-start lg:text-xl">
-                <p className="text-leon-black">{productTitle}</p>
+                <p className="text-leon-black w-full">{productTitle}</p>
                 <p className="text-leon-black">{productYear}</p>
-                <p className="text-leon-black">
-                  {product.availableForSale ? 'Disponível' : 'Indisponível'}
-                </p>
+                <p className="text-leon-black">{availabilityStatus}</p>
                 {product.tags?.length > 0 && (
                   <p className="text-leon-black">{product.tags[0]}</p>
                 )}
+              </div>
+            </div>
+
+            {productOptions.length > 0 && (
+              <div className="flex flex-col gap-0 lg:mr-auto w-full">
+                {productOptions.map(
+                  (option: { name: string; values: string[] }) => (
+                    <div
+                      key={option.name}
+                      className="flex gap-2 items-center lg:mx-0"
+                    >
+                      <label
+                        htmlFor={`select-${option.name}`}
+                        className="font-light text-leon-concrete lg:text-xl lg:w-[120px] w-[80px] text-right flex-shrink-0 lg:mx-0"
+                      >
+                        {translateOptionName(option.name)}
+                      </label>
+                      <Select
+                        value={selectedOptions[option.name] || ''}
+                        onValueChange={value =>
+                          handleOptionChange(option.name, value)
+                        }
+                      >
+                        <SelectTrigger
+                          id={`select-${option.name}`}
+                          className="w-fit bg-leon-new-sand border-leon-concrete/30"
+                        >
+                          <SelectValue
+                            placeholder={`Selecione ${translateOptionName(option.name)}`}
+                          />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {option.values.map((value: string) => (
+                            <SelectItem key={value} value={value}>
+                              {translateOptionValue(value)}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  )
+                )}
+              </div>
+            )}
+
+            <div className="flex gap-2 font-light text-nowrap lg:w-full">
+              <div className="flex flex-col items-end lg:text-xl">
+                <p className="text-leon-concrete lg:text-xl lg:w-[120px] w-[80px] text-right flex-shrink-0">
+                  {t('price')}
+                </p>
+              </div>
+              <div className="flex flex-col items-start">
                 <p className="text-leon-black lg:text-2xl text-xl">
-                  R$ {price}
+                  R$ {currentPrice}
                 </p>
               </div>
             </div>
+
             <Button
               variant="leon"
               size="store"
-              className="text-lg"
-              disabled={!product.availableForSale || isLoading}
+              className="text-lg w-fit mt-8 lg:ml-[80px] mx-auto"
+              disabled={!selectedVariant?.availableForSale || isLoading}
               onClick={handleAddToCart}
             >
               {isLoading
                 ? `${t('addToCartButtonState1')}`
-                : product.availableForSale
+                : selectedVariant?.availableForSale
                   ? `${t('addToCartButtonState2')}`
                   : `${t('addToCartButtonState3')}`}
             </Button>
@@ -283,8 +415,7 @@ export default function ProductPage({ handle }: ProductPageProps) {
       >
         <div className="lg:text-xl font-light text-center mx-3 lg:w-2/3">
           {product.description ? (
-            // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
-            <div dangerouslySetInnerHTML={{ __html: product.description }} />
+            <p>{product.description}</p>
           ) : (
             <p>Produto sem descrição disponível.</p>
           )}
@@ -351,13 +482,6 @@ function ProductCarouselDesktop({ images }: ProductCarouselProps) {
             const width = image.width || 800
             const height = image.height || 600
             const cardWidth = getCardWidth(width, height)
-
-            console.log(`Imagem ${index + 1}:`, {
-              url: image.url,
-              width: image.width,
-              height: image.height,
-              calculatedWidth: cardWidth,
-            })
 
             return (
               <CarouselItem

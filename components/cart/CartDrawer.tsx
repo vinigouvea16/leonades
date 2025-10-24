@@ -112,9 +112,23 @@ export default function CartDrawer() {
 
                     {/* product info */}
                     <div className="flex-1 min-w-0 my-auto items-center lg:items-start flex flex-col ">
-                      <h3 className="text-lg lg:text-2xl font-medium text-[#764B28] truncate text-center lg:text-left">
+                      <h3 className="text-xl lg:text-2xl px-1 font-medium text-[#764B28] truncate text-center lg:text-left">
                         {item.title}
                       </h3>
+                      {/* product options */}
+                      {item.selectedOptions &&
+                        item.selectedOptions.length > 0 && (
+                          <div className="flex flex-col items-center lg:flex-row  flex-wrap gap-2 mt-1">
+                            {item.selectedOptions.map(option => (
+                              <span
+                                key={option.name}
+                                className="text-sm text-leon-concrete bg-white/50 px-2 py-0.5 rounded"
+                              >
+                                {option.value}
+                              </span>
+                            ))}
+                          </div>
+                        )}
 
                       {/* quantity */}
                       <div className="flex items-center gap-2 mt-2">

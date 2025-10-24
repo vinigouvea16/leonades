@@ -8,9 +8,6 @@ export async function GET(
   try {
     const { handle } = await context.params
 
-    // console.log('=== DEBUG ===')
-    // console.log('Handle:', handle)
-
     if (!handle) {
       return NextResponse.json(
         { error: 'Handle do produto é obrigatório' },
@@ -25,7 +22,7 @@ export async function GET(
         handle
         description
         availableForSale
-        images(first: 10) {
+        images(first: 20) {
           edges {
             node {
               url
@@ -45,7 +42,12 @@ export async function GET(
             currencyCode
           }
         }
-        variants(first: 10) {
+        options {
+          id
+          name
+          values
+        }
+        variants(first: 100) {
           edges {
             node {
               id
@@ -55,6 +57,16 @@ export async function GET(
                 currencyCode
               }
               availableForSale
+              selectedOptions {
+                name
+                value
+              }
+              image {
+                url
+                altText
+                width
+                height
+              }
             }
           }
         }
@@ -83,8 +95,6 @@ export async function GET(
       }
     }`
 
-    // console.log('Query com metafields sendo enviada...')
-
     const response = await shopifyFetch<{
       product: {
         id: string
@@ -106,6 +116,11 @@ export async function GET(
           minVariantPrice: { amount: string; currencyCode: string }
           maxVariantPrice: { amount: string; currencyCode: string }
         }
+        options: {
+          id: string
+          name: string
+          values: string[]
+        }[]
         variants: {
           edges: {
             node: {
@@ -113,6 +128,16 @@ export async function GET(
               title: string
               price: { amount: string; currencyCode: string }
               availableForSale: boolean
+              selectedOptions: {
+                name: string
+                value: string
+              }[]
+              image: {
+                url: string
+                altText: string | null
+                width: number
+                height: number
+              } | null
             }
           }[]
         }
@@ -154,11 +179,27 @@ export async function GET(
         min: rawProduct.priceRange.minVariantPrice,
         max: rawProduct.priceRange.maxVariantPrice,
       },
+      options: rawProduct.options.map(option => ({
+        name: option.name,
+        values: option.values,
+      })),
       variants: rawProduct.variants.edges.map(edge => ({
         id: edge.node.id,
         title: edge.node.title,
         price: edge.node.price,
         availableForSale: edge.node.availableForSale,
+        selectedOptions: edge.node.selectedOptions.map(opt => ({
+          name: opt.name,
+          value: opt.value,
+        })),
+        image: edge.node.image
+          ? {
+              url: edge.node.image.url,
+              altText: edge.node.image.altText,
+              width: edge.node.image.width,
+              height: edge.node.image.height,
+            }
+          : undefined,
       })),
       tags: rawProduct.tags,
       year: rawProduct.yearMetafield?.value || null,
