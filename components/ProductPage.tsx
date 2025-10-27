@@ -381,6 +381,18 @@ export default function ProductPage({ handle }: ProductPageProps) {
               </div>
             </div>
 
+            {/* NOVO: Prazo de Produção - apenas para produtos "Sob Encomenda" */}
+            {availabilityStatus === 'Sob Encomenda' && (
+              <div className="flex gap-2 font-light lg:w-full ">
+                <p className="text-leon-concrete lg:text-xl lg:w-[120px] w-[80px] text-right text-nowrap flex-shrink-0">
+                  {t('deliveryTime')}
+                </p>
+                <p className="text-leon-black lg:text-xl">
+                  90 {t('businessDays')}
+                </p>
+              </div>
+            )}
+
             <Button
               variant="leon"
               size="store"

@@ -68,7 +68,9 @@
     "year": "Año",
     "status": "Estado",
     "category": "Categoría",
-    "price": "Precio"
+    "price": "Precio",
+    "deliveryTime": "Plazo",
+    "businessDays": "días hábiles"
   },
   "Cart": {
     "cartHeader": "Carrito de compras",

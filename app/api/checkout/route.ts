@@ -11,6 +11,8 @@ export async function POST(request: NextRequest) {
     const { lineItems }: { lineItems: CheckoutLineItem[] } =
       await request.json()
 
+    console.log('📦 Nenhum item fornecido para o checkout')
+
     if (!lineItems || lineItems.length === 0) {
       return NextResponse.json(
         { error: 'Nenhum item fornecido para o checkout' },
@@ -19,51 +21,52 @@ export async function POST(request: NextRequest) {
     }
 
     const shopifyLineItems = lineItems.map(item => ({
-      variantId: item.variantId,
+      merchandiseId: item.variantId,
       quantity: item.quantity,
     }))
 
+    console.log('🛒 shopifyLineItems:', shopifyLineItems)
+
     const mutation = `
-      mutation checkoutCreate($input: CheckoutCreateInput!) {
-        checkoutCreate(input: $input) {
-          checkout {
+      mutation cartCreate($input: CartInput!) {
+        cartCreate(input: $input) {
+          cart {
             id
-            webUrl
-            subtotalPriceV2 {
-              amount
-              currencyCode
+            checkoutUrl
+            cost {
+              totalAmount {
+                amount
+                currencyCode
+              }
+              subtotalAmount {
+                amount
+                currencyCode
+              }
             }
-            totalTaxV2 {
-              amount
-              currencyCode
-            }
-            totalPriceV2 {
-              amount
-              currencyCode
-            }
-            lineItems(first: 250) {
+            lines(first: 250) {
               edges {
                 node {
                   id
-                  title
                   quantity
-                  variant {
-                    id
-                    title
-                    priceV2 {
-                      amount
-                      currencyCode
-                    }
-                    product {
-                      handle
+                  merchandise {
+                    ... on ProductVariant {
+                      id
                       title
+                      product {
+                        title
+                        handle
+                      }
+                      price {
+                        amount
+                        currencyCode
+                      }
                     }
                   }
                 }
               }
             }
           }
-          checkoutUserErrors {
+          userErrors {
             field
             message
           }
@@ -73,65 +76,64 @@ export async function POST(request: NextRequest) {
 
     const variables = {
       input: {
-        lineItems: shopifyLineItems,
-        allowPartialAddresses: true,
+        lines: shopifyLineItems,
       },
     }
+    console.log('📝 variables enviadas:', JSON.stringify(variables, null, 2))
 
     const response = await shopifyFetch<{
-      checkoutCreate: {
-        checkout: {
+      cartCreate: {
+        cart: {
           id: string
-          webUrl: string
-          subtotalPriceV2: { amount: string; currencyCode: string }
-          totalTaxV2: { amount: string; currencyCode: string }
-          totalPriceV2: { amount: string; currencyCode: string }
-          lineItems: {
+          checkoutUrl: string
+          cost: {
+            totalAmount: { amount: string; currencyCode: string }
+            subtotalAmount: { amount: string; currencyCode: string }
+          }
+          lines: {
             edges: {
               node: {
                 id: string
-                title: string
                 quantity: number
-                variant: {
+                merchandise: {
                   id: string
                   title: string
-                  priceV2: { amount: string; currencyCode: string }
-                  product: { handle: string; title: string }
+                  product: { title: string; handle: string }
+                  price: { amount: string; currencyCode: string }
                 }
               }
             }[]
           }
         }
-        checkoutUserErrors: { field: string; message: string }[]
+        userErrors: { field: string[]; message: string }[]
       }
-    }>(mutation, { variables })
+    }>(mutation, variables)
 
-    if (response?.data?.checkoutCreate?.checkoutUserErrors?.length > 0) {
-      const errors = response.data.checkoutCreate.checkoutUserErrors
-      console.error('Shopify checkout errors:', errors)
+    if (response?.data?.cartCreate?.userErrors?.length > 0) {
+      const errors = response.data.cartCreate.userErrors
+      console.error('Shopify cart errors:', errors)
       return NextResponse.json(
         { error: `Erro no checkout: ${errors.map(e => e.message).join(', ')}` },
         { status: 400 }
       )
     }
 
-    const checkout = response?.data?.checkoutCreate?.checkout
+    const cart = response?.data?.cartCreate?.cart
 
-    if (!checkout) {
+    if (!cart) {
       return NextResponse.json(
-        { error: 'Falha ao criar checkout' },
+        { error: 'Falha ao criar carrinho' },
         { status: 500 }
       )
     }
 
     return NextResponse.json({
       checkout: {
-        id: checkout.id,
-        webUrl: checkout.webUrl,
-        subtotal: checkout.subtotalPriceV2,
-        tax: checkout.totalTaxV2,
-        total: checkout.totalPriceV2,
-        lineItems: checkout.lineItems.edges.map(edge => edge.node),
+        id: cart.id,
+        webUrl: cart.checkoutUrl,
+        total: cart.cost.totalAmount,
+        subtotal: cart.cost.subtotalAmount,
+        lineItems: cart.lines.edges.map(edge => edge.node),
       },
     })
   } catch (error) {
