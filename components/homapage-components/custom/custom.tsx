@@ -24,7 +24,7 @@ export default function Custom() {
         <div className="items-center flex flex-col gap-3 lg:gap-1 lg:items-start">
           <p className="lg:text-justify text-center">{t('custom-made-p')}</p>
           <span className="font-medium underline underline-offset-4">
-            leonades@design.com
+            contato@leonades.com
           </span>
         </div>
       </div>

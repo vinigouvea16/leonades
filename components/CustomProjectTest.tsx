@@ -53,7 +53,7 @@ export default function CustomProjectsSection() {
         <div className="items-center flex flex-col gap-3 lg:gap-0 lg:items-start lg:w-2/3">
           <p className="text-justify lg:text-xl">{t('custom-made-p')}</p>
           <span className="font-medium underline underline-offset-4 text-lg">
-            leonades@design.com
+            contato@leonades.com
           </span>
         </div>
       </div>
