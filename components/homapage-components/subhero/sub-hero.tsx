@@ -16,7 +16,7 @@ export default function SubHero() {
     >
       <div className="flex flex-col lg:flex-row lg:mx-5 gap-5 justify-between h-[80%]">
         <div
-          className="lg:flex-1 flex flex-col justify-end  lg:mx-0 mx-3"
+          className="lg:flex-1 flex flex-col justify-end lg:mx-0 mx-3"
           id="autoral"
         >
           <div className="flex flex-col my-16 lg:hidden items-center ">
@@ -64,7 +64,7 @@ export default function SubHero() {
           </div>
           <div id="photoright" className="w-full">
             <Image
-              className="object-cover h-full"
+              className="object-cover h-full w-full"
               width={555}
               height={809}
               quality={100}
