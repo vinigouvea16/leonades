@@ -152,7 +152,7 @@ export async function GET(
       }
     }>(queryWithMetafields)
 
-    console.log('Resposta recebida:', !!response?.data?.product)
+    // console.log('Resposta recebida:', !!response?.data?.product)
 
     if (!response?.data?.product) {
       return NextResponse.json(
@@ -222,7 +222,7 @@ export async function GET(
       },
     }
 
-    console.log('Produto processado com sucesso!')
+    // console.log('Produto processado com sucesso!')
     return NextResponse.json({ product })
   } catch (error) {
     console.error('Erro ao buscar produto:', error)

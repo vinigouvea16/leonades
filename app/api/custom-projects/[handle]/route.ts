@@ -72,7 +72,7 @@ export async function GET(
       }
     }`
 
-    console.log('Query para projeto customizado sendo enviada...')
+    // console.log('Query para projeto customizado sendo enviada...')
 
     const response = await shopifyFetch<{
       product: {
@@ -109,7 +109,7 @@ export async function GET(
       }
     }>(query)
 
-    console.log('Resposta recebida:', !!response?.data?.product)
+    // console.log('Resposta recebida:', !!response?.data?.product)
 
     if (!response?.data?.product) {
       return NextResponse.json(
@@ -163,7 +163,7 @@ export async function GET(
       },
     }
 
-    console.log('Projeto processado com sucesso!')
+    // console.log('Projeto processado com sucesso!')
     return NextResponse.json({ project })
   } catch (error) {
     console.error('Erro ao buscar projeto customizado:', error)

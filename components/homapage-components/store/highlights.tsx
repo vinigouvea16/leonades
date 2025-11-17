@@ -53,7 +53,7 @@ export default function Highlights() {
   }
 
   const featuredProducts = products.slice(0, 3)
-  console.log(featuredProducts, 'featuredProducts')
+  // console.log(featuredProducts, 'featuredProducts')
 
   return (
     <div className="lg:h-[120vh] flex flex-col lg:mx-5 gap-2">
