@@ -31,7 +31,7 @@ export default function Footer() {
           <div className="flex flex-col space-y-4 text-center lg:text-start">
             <p className="text-xl">{t('address')}</p>
             <p className="text-sm ">Rua Mourato Coelho, 723 - Pinheiros</p>
-            <p className="text-sm ">São Paulo, São Paulo. 12430456</p>
+            <p className="text-sm ">São Paulo, São Paulo. 05417-010</p>
           </div>
           <div className="flex flex-col space-y-4 text-center lg:text-start">
             <p className="text-xl">{t('contact')}</p>

@@ -31,12 +31,16 @@ export default function StoreFooter() {
           <div className="flex flex-col space-y-4 text-center lg:text-start">
             <p className="text-xl">{t('address')}</p>
             <p className="text-sm ">Rua Mourato Coelho, 723 - Pinheiros</p>
-            <p className="text-sm ">São Paulo, São Paulo. 12430456</p>
+            <p className="text-sm ">São Paulo, São Paulo. 05417-010</p>
           </div>
           <div className="flex flex-col space-y-4 text-center lg:text-start">
             <p className="text-xl">{t('contact')}</p>
-            <p className="text-sm ">Instagram</p>
-            <p className="text-sm ">Twitter</p>
+            <a href="https://www.instagram.com/leon.ades/" className="text-sm ">
+              Instagram
+            </a>
+            <a href="mailto:contato@leonades.com" className="text-sm ">
+              E-mail
+            </a>
           </div>
         </div>
       </div>
