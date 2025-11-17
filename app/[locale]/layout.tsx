@@ -5,6 +5,7 @@ import CartDrawer from '@/components/cart/CartDrawer'
 import { CartProvider } from '@/contexts/CartContext'
 import { routing } from '@/i18n/routing'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import Header from '../../components/header/header'
 
@@ -25,9 +26,40 @@ const outfit = Outfit({
   display: 'swap',
 })
 
-export const metadata: Metadata = {
-  title: 'Leon Ades | Design',
-  description: 'Moveis de alto padrão',
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'Metadata' })
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      url: `https://leonades.com/${locale}`,
+      siteName: 'Leon Ades',
+      images: [
+        {
+          url: 'https://leonades.com/metadataleon.png',
+          width: 928,
+          height: 600,
+          alt: t('imageAlt'),
+        },
+      ],
+      locale: locale,
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('title'),
+      description: t('description'),
+      images: ['https://leonades.com/metadataleon.png'],
+    },
+  }
 }
 
 export function generateStaticParams() {
@@ -42,9 +74,11 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>
 }>) {
   const { locale } = await params
+
   if (!hasLocale(routing.locales, locale)) {
     notFound()
   }
+
   return (
     <html lang={locale}>
       <body
