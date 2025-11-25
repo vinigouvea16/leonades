@@ -3,6 +3,7 @@ import FAQ from '@/components/homapage-components/faq/faq'
 import Footer from '@/components/homapage-components/footer/footer'
 import Hero from '@/components/homapage-components/hero/hero'
 import Loader from '@/components/homapage-components/loader/loader'
+import Showroom from '@/components/homapage-components/showroom/showroom'
 import StoreSection from '@/components/homapage-components/store/store'
 import SubHero from '@/components/homapage-components/subhero/sub-hero'
 import { setRequestLocale } from 'next-intl/server'
@@ -24,6 +25,7 @@ export default function HomePage({
       <StoreSection />
       <FAQ />
       <CustomProjectsSection />
+      <Showroom />
       <Footer />
     </div>
   )
