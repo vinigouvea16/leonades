@@ -1,7 +1,9 @@
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import React from 'react'
 
 export default function Showroom() {
+  const t = useTranslations('Showroom')
   return (
     <div className="flex flex-col font-light lg:mb-24 mb-10 gap-4">
       <div className="flex flex-col lg:p-5 p-0 gap-8">
@@ -32,28 +34,22 @@ export default function Showroom() {
           />
         </div>
       </div>
-      <div className="flex flex-col lg:mx-auto gap-10 items-center mx-3">
-        <div className="flex flex-col lg:w-3/4 w-full lg:space-y-4 space-y-2 lg:text-xl text-base text-leon-black">
+      <div className="flex flex-col gap-10 items-center mx-3">
+        <div className="flex flex-col lg:w-4/5 w-full lg:space-y-4 space-y-2 lg:text-lg text-base text-leon-black">
+          <p className="lg:text-center text-justify"> {t('p1')} </p>
+          <p className="lg:text-center text-justify"> {t('p2')} </p>
+          <p className="lg:text-center text-justify"> {t('p3')} </p>
           <p className="lg:text-center text-justify">
-            Temos o orgulho de apresentar um espaço dedicado ao design atencioso
-            e bem elaborado que tanto nos inspira.
-          </p>
-          <p className="lg:text-center text-justify">
-            Agora, você terá a oportunidade única de vivenciar nossas coleções
-            em primeira mão, explorar a oficina e descobrir as histórias por
-            trás de cada peça, em nosso novo showroom localizado em São Paulo.
-          </p>
-          <p className="lg:text-center text-justify">
-            As visitas são realizadas mediante reserva, para que possamos
-            oferecer uma experiência exclusiva e personalizada.
+            {t('p4')}
+            <br /> {t('p5')}
           </p>
         </div>
         <div className="flex items-center justify-center align-middle lg:w-[550px] w-[300px] py-2 bg-leon-black ">
           <a
             href="https://api.whatsapp.com/send?phone=5511971986991&text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20visita%20ao%20Showroom!"
-            className="text-leon-sand uppercase lg:text-4xl text-2xl tracking-wide items-center flex justify-center"
+            className="text-leon-sand uppercase lg:text-3xl text-2xl tracking-wider items-center flex justify-center"
           >
-            agendar visita
+            {t('button')}
           </a>
         </div>
       </div>

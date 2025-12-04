@@ -113,5 +113,13 @@
     "title": "Leon Ades | Design",
     "description": "Ancient techniques / contemporary designs",
     "imageAlt": "Leon Ades | Design homepage picture of one of his products"
+  },
+  "Showroom": {
+    "p1": "Visit our Showroom in Pinheiros",
+    "p2": "Open by appointment, our space in São Paulo is the ideal place for you to see and touch our furniture.",
+    "p3": "Schedule a visit — it will be a pleasure to welcome you, show you the pieces up close, and answer any questions about the furniture.",
+    "p4": "If you don't live in São Paulo, we're still here to help.",
+    "p5": "Just call or send an email — we'd love to chat with you.",
+    "button": "schedule a visit"
   }
 }

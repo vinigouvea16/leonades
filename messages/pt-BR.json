@@ -113,5 +113,13 @@
     "title": "Leon Ades | Design",
     "description": "Técnicas milenares / desenhos contemporâneos",
     "imageAlt": "Leon Ades | Foto da homepage de um de seus produtos"
+  },
+  "Showroom": {
+    "p1": "Conheça nosso Showroom em Pinheiros",
+    "p2": "Aberto com horário agendado, nosso espaço em São Paulo é o lugar ideal para você ver e tocar nossos móveis.",
+    "p3": "Agende uma visita — vai ser um prazer receber você, mostrar as peças de perto e tirar qualquer dúvida sobre os móveis.",
+    "p4": "Se você não mora em São Paulo, seguimos por aqui para ajudar.",
+    "p5": "É só ligar ou mandar um e-mail — vamos adorar conversar com você.",
+    "button": "Agenda visita"
   }
 }
